@@ -8,7 +8,6 @@ type AppStore = {
 export const useStore = create<AppStore>((set) => ({
     counter: 0,
     incrementCount: () => {
-        debugger
         return set((state) => ({counter: state.counter + 1}))
     },
 }))

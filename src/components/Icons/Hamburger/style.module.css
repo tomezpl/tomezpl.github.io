@@ -1,0 +1,17 @@
+.root {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+    justify-content: space-between;
+    display: inline-grid;
+    height: var(--icon-size, 2em);
+    width: auto;
+    aspect-ratio: 14 / 16;
+    align-items: center;
+
+    > span {
+        height: 45%;
+        background-color: var(--icon-colour, #222);
+        /*border: 1px solid #000;*/
+        border-radius: calc(var(--icon-size, 2.5em) * 0.0475);
+    }
+}
