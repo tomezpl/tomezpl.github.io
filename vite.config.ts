@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
 import {browserslistToTargets} from "lightningcss";
 import browserslist from "browserslist";
+import {resolve} from 'node:path';
 
 // @ts-ignore
 console.log(process.env.NODE_ENV)
@@ -15,16 +16,22 @@ export default defineConfig({
       },
     })
   ],
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'src')
+    }
+  },
   css: {
-    transformer: 'lightningcss',
+    // transformer: 'lightningcss',
     lightningcss: {
       targets: browserslistToTargets(browserslist('>= 1%')),
       cssModules: true,
       // @ts-ignore
       sourceMap: process.env.NODE_ENV !== 'production',
+
     }
   },
   build: {
-    cssMinify: 'lightningcss'
+    // cssMinify: 'lightningcss'
   }
 })

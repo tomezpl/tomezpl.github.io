@@ -1,5 +1,5 @@
 import { hydrate, prerender as ssr } from 'preact-iso'
-import './index.css'
+import './shared.scss'
 import 'normalize.css';
 import { App } from './app.tsx'
 

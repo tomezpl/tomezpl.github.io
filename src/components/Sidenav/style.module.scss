@@ -1,0 +1,173 @@
+@use "sass:color";
+@use "~/shared";
+
+@keyframes sidenav-open {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: var(--full-sidebar-width, 4rem);
+    }
+}
+
+@keyframes sidenav-open-menutoggle {
+    from {
+        left: calc(var(--full-sidebar-width, 4rem) / 2);
+        transform: translate(-50%, 0);
+        position: absolute;
+    }
+
+    to {
+        position: relative;
+        left: 0;
+        transform: none;
+    }
+}
+
+.root {
+    --full-sidebar-width: min(15rem, 20vw);
+    /*border-right: var(--sidenav-border-size, 0) solid var(--sidenav-border-colour, rgba(0,0,0,0));*/
+    box-shadow: 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0)), 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0));
+    height: 100vh;
+    width: var(--full-sidebar-width, 4rem);
+
+    &.open {
+        --sidenav-border-size: 1px;
+        --sidenav-border-colour: #000;
+        --sidenav-bg-colour: #eee;
+        pointer-events: all;
+        box-shadow: 1px 0 2px 1px rgba(0,0,0,1), 16px 0 40px 2px rgba(0, 0, 0, 0.15);
+        animation: sidenav-open 0.4s;
+
+        .menuToggle {
+            animation: sidenav-open-menutoggle 0.4s;
+        }
+    }
+
+    transition: 0.16s box-shadow ease;
+
+    pointer-events: none;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    grid-template: "menu-toggle" auto "buttons" auto "footer" auto / minmax(auto, 100%);
+    display: grid;
+    align-content: start;
+
+    .menuToggle {
+        position: relative;
+        margin: 1rem 0.35rem;
+        grid-area: menu-toggle;
+        justify-self: center;
+        width: fit-content;
+        pointer-events: all;
+        cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        border: 1px solid color-mix(in srgb, #22222299, #00f 20%);
+        border-radius: 4px;
+        box-shadow: 0 0 1px 0 color-mix(in srgb, #222, #00f 20%);
+        padding: 0.2em 0.45em;
+
+        transition: 0.15s box-shadow ease;
+
+        :global(.hamburger-icon) > span {
+            box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
+            transition: 0.15s box-shadow ease;
+        }
+
+        &:hover {
+            box-shadow: 0 0 2px 3px #000;
+            :global(.hamburger-icon) > span {
+                box-shadow: 0 0 3px 0px rgba(0,0,0,0.32);
+            }
+        }
+    }
+
+    // Buttons
+    .buttons {
+        grid-area: buttons;
+    }
+}
+
+// Old
+
+.root > ul {
+    padding: 0;
+
+    > li.navItem {
+        font-size: 1.3rem;
+
+        &:first-child .button {
+            border-top-width: 3px;
+        }
+
+        &:last-child .button {
+            border-bottom-width: 3px;
+        }
+
+        list-style: none;
+
+    }
+}
+
+.button {
+    $bgColor: color.mix(color.mix(#000, color.mix(#fff, shared.$color-roseypink, 10%), 75%), color.mix(#000, shared.$color-purple, 50%), 20%);
+    background-color: $bgColor;
+    border: 1px solid rgba(color.mix(#fff, shared.$color-roseypink, 30%), 0.3);
+    border-left: none;
+    border-right: none;
+    text-decoration: none;
+    font-weight: 800;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+
+    > span {
+        padding-left: 1rem;
+    }
+
+    &:hover:not(:global(.active)) {
+        background-color: color.mix(color.mix(#000, color.mix(#fff, shared.$color-roseypink, 10%), 65%), color.mix(#000, shared.$color-purple, 40%), 70%);
+
+        border-color: rgba(shared.$color-strongpurple, 0.3);
+    }
+
+    &:active,
+    &:global(.active) {
+        background-color: color.mix(color.mix(#000, color.mix(#fff, shared.$color-roseypink, 10%), 45%), color.mix(#000, shared.$color-purple, 50%), 80%);
+        text-shadow: 1px 1px 5px rgba(black, 0.55);
+        border-color: shared.$color-orange;
+    }
+
+    &:focus {
+        text-shadow: 1px 1px 5px rgba(black, 0.55);
+    }
+
+    &>div:first-of-type {
+        flex-basis: 100%;
+        flex-shrink: 1;
+        flex-grow: 0;
+        text-align: left;
+        padding-left: 1em;
+    }
+
+    width: 100%;
+
+    color: rgba(shared.$color-light, 0.875);
+
+    text-shadow: 1px 1px 5px rgba(black, 0.35);
+
+    font-size: 1.35rem;
+
+    height: 3.5rem;
+    position: relative;
+    z-index: 1022;
+}

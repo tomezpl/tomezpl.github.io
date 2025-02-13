@@ -1,0 +1,44 @@
+@use "sass:color";
+@import url(inter-ui/inter.css);
+
+$color-dark: #333D39;
+$color-turqouise: #4BA399;
+$color-blue: #3F7087;
+$color-purple: #2D3256;
+$color-light: #E7F7F6;
+$color-orange: #e4712f;
+$color-greenish: #B9CE9F;
+$color-easyblue: #466B89;
+$color-roseypink: #BA6781;
+$color-lightrosey: #FFBFE4;
+$color-violet: #744b79;
+$color-strongpurple: #5c0074;
+$color-silver: #5a5a5a;
+$color-aqua: #90E0D5;
+$color-darkaqua: #2C6160;
+$color-beige: #D3BFA7;
+$color-seaweed: #BDC190;
+$color-beigepink: #E5B8C0;
+$color-beigepurple: #B395A3;
+$color-lightpink: color.mix(#fff, $color-lightrosey, 40%);
+
+body {
+    font-family: "Inter", "system-ui";
+
+    height: 100%;
+    width: 100%;
+
+    background-color: #000;
+}
+
+.tz-brand-gradient {
+    background-image: linear-gradient(0deg, rgba($color-roseypink, 0.7), rgba($color-violet, 1));
+}
+
+.tz-brand-gradient-sub {
+    background-image: linear-gradient(-90deg, rgba(color.mix(#fff, $color-roseypink, 10%), 0.2), rgba(color.mix(#000, $color-purple, 30%), 0.5));
+}
+
+.tz-brand-gradient-sidebar {
+    background-image: linear-gradient(-90deg, color.mix(#000, color.mix(#fff, $color-roseypink, 10%), 75%), color.mix(#000, $color-purple, 70%));
+}

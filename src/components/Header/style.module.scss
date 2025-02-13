@@ -1,0 +1,64 @@
+@use "sass:color";
+@use "~/shared";
+
+div.navbar {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.root {
+    position: fixed;
+    width: 100vw;
+    min-height: 4.5rem;
+    border-bottom: 2px solid rgba(shared.$color-lightpink, 0.8);
+}
+
+.tzLogo {
+    height: 4.5em;
+    width: auto;
+}
+
+.navIcon {
+    height: 100%;
+    width: 4rem;
+    font-size: 2rem;
+    z-index: 1021;
+}
+
+.navIcon i {
+    position: relative;
+    top: -17.5%;
+
+    margin-right: 0.3rem;
+}
+
+.navBorder {
+    border-color: color.mix(#fff, shared.$color-roseypink, 10%);
+}
+
+#navbarContent {
+    height: 100vh;
+    transition: transform 0.15s ease;
+    backdrop-filter: blur(2px);
+    width: 100%;
+}
+
+#navbarContent ul li.navItem {
+    display: inline-block;
+}
+
+.navbar-toggler {
+    width: fit-content;
+}
+
+.tz-navbar-hidden {
+    transform: translateX(-100%);
+}
+
+.tz-navbar-shown {
+    transform: translateX(0%);
+}
+
+.hide {
+    width: 0;
+    transition: width 0.15s ease;
+}
