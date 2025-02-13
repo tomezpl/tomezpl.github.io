@@ -1,10 +1,10 @@
 import type {FunctionComponent} from "preact";
-import {PropsWithChildren} from "react";
+import MainLayout from "../../layouts/MainLayout";
 
 const HomePage: FunctionComponent = () => {
-    return <>
+    return <MainLayout>
 
-    </>
+    </MainLayout>
 }
 
 export default HomePage;

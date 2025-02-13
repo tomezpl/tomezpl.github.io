@@ -2,10 +2,8 @@ import {FunctionComponent} from "preact";
 import styles from './style.module.scss';
 import Hamburger from "../Icons/Hamburger";
 import {useRef} from "preact/hooks";
-import {useLocation, useRoute} from "preact-iso";
+import {useLocation} from "preact-iso";
 import pages from "../../pages";
-
-
 
 const Sidenav: FunctionComponent = () => {
     const menuRef = useRef<HTMLDivElement>(null);
