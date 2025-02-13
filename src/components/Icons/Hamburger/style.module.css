@@ -5,11 +5,11 @@
     display: inline-grid;
     height: var(--icon-size, 2em);
     width: auto;
-    aspect-ratio: 14 / 16;
+    aspect-ratio: 14 / 18;
     align-items: center;
 
     > span {
-        height: 45%;
+        height: 19%;
         background-color: var(--icon-colour, #222);
         /*border: 1px solid #000;*/
         border-radius: calc(var(--icon-size, 2.5em) * 0.0475);

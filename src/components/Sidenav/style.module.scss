@@ -25,12 +25,69 @@
     }
 }
 
+@keyframes sidenav-open-slide {
+    0% {
+        transform: translate(-100%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes sidenav-open-slide-bg {
+    0% {
+        background-size: 0;
+    }
+
+    100% {
+        background-size: 100%;
+    }
+}
+
+@keyframes sidenav-prevent-anim-on-load {
+    from {
+        visibility: hidden;
+    }
+
+    to {
+        visibility: visible;
+    }
+}
+
+// Hide the sidenav by by default, but without display: none, so we keep the intrinsic size.
+.root *:not(.menuToggle):not(.menuToggle *) {
+    // Allow me to explain this gash: because of the CSS transitions for the sidenav,
+    // the sidenav will animate shrinking when you load the page. So we use a hard step anim
+    // to hide the sidenav's contents for the first 0.5s
+    animation-name: sidenav-prevent-anim-on-load;
+    animation-duration: 0.5s;
+    animation-timing-function: step-end;
+}
+
+.root:not(.open) {
+    pointer-events: none;
+}
+
+.root.open > *:not(.menuToggle):not(.menuToggle *) {
+    //animation: sidenav-open-slide 1s;
+    animation-timing-function: ease;
+    transform: translate(0, 0);
+}
+
+.root > *:not(.menuToggle):not(.menuToggle *) {
+    transition: 0.5s transform ease;
+    transform: translate(-100%, 0);
+}
+
 .root {
     --full-sidebar-width: min(15rem, 20vw);
     /*border-right: var(--sidenav-border-size, 0) solid var(--sidenav-border-colour, rgba(0,0,0,0));*/
     box-shadow: 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0)), 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0));
     height: 100vh;
     width: var(--full-sidebar-width, 4rem);
+    background-repeat: no-repeat;
+    background-size: 0%;
 
     &.open {
         --sidenav-border-size: 1px;
@@ -38,14 +95,19 @@
         --sidenav-bg-colour: #eee;
         pointer-events: all;
         box-shadow: 1px 0 2px 1px rgba(0,0,0,1), 16px 0 40px 2px rgba(0, 0, 0, 0.15);
-        animation: sidenav-open 0.4s;
+        //animation: sidenav-open 0.4s;
+        background-size: 100%;
+        //animation: sidenav-open-slide-bg 1s;
+        animation-timing-function: ease;
 
         .menuToggle {
-            animation: sidenav-open-menutoggle 0.4s;
+            //animation: sidenav-open-menutoggle 0.4s;
         }
+
+        transition: box-shadow 0.16s 0.5s ease, background-size 0.5s ease;
     }
 
-    transition: 0.16s box-shadow ease;
+    transition: background-size 0.5s ease;
 
     pointer-events: none;
 
@@ -59,6 +121,7 @@
     align-content: start;
 
     .menuToggle {
+        --icon-colour: rgba(200, 200, 200, 0.8);
         position: relative;
         margin: 1rem 0.35rem;
         grid-area: menu-toggle;
@@ -69,10 +132,9 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
-        border: 1px solid color-mix(in srgb, #22222299, #00f 20%);
+        box-shadow: 0 0 0px 1px rgba(255, 255, 255, 0.1);
         border-radius: 4px;
-        box-shadow: 0 0 1px 0 color-mix(in srgb, #222, #00f 20%);
-        padding: 0.2em 0.45em;
+        padding: 0.25em 0.85em;
 
         transition: 0.15s box-shadow ease;
 
@@ -82,7 +144,7 @@
         }
 
         &:hover {
-            box-shadow: 0 0 2px 3px #000;
+            box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.3);
             :global(.hamburger-icon) > span {
                 box-shadow: 0 0 3px 0px rgba(0,0,0,0.32);
             }
