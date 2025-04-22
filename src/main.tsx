@@ -3,7 +3,7 @@ import './shared.scss'
 import 'normalize.css';
 import { App } from './app.tsx'
 
-if(typeof window !== 'undefined' && !document.getElementById("app")) {
+if(typeof window !== 'undefined') {
     hydrate(<App/>, document.body)
 }
 
