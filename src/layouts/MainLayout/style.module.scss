@@ -10,3 +10,15 @@
   height: 100%;
   min-height: 100vh;
 }
+
+.dummyHeader {
+  &, & * {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  & {
+    position: relative;
+  }
+
+}

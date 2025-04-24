@@ -1,0 +1,203 @@
+@use "sass:color";
+@use "~/shared";
+
+$oddPostColour: color.mix(color.mix(#000, shared.$color-purple, 60%), shared.$color-lightrosey, 75%);
+$evenPostColour: color.mix(#000, shared.$color-violet, 65%);
+
+.homePageRoot {
+  position: relative;
+  top: 0;
+}
+
+.dummyHeader {
+  position: relative;
+  &, & * {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.coverText {
+  color: shared.$color-light;
+}
+
+.bigText {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.socialLinksContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: shared.padding(5);
+  margin-bottom: shared.padding(3);
+}
+
+.socialLinksContainer>a {
+  width: 90px;
+  min-height: 80px;
+  aspect-ratio: 1 / 1;
+
+  border: 1px solid #cfcfcf9f;
+  background: rgba(255, 255, 255, 0.1);
+  transition: ease-in-out 0.4s background, ease-in-out 0.3s backdrop-filter;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: contrast(120%);
+  }
+
+  &:active {
+    backdrop-filter: contrast(105%);
+  }
+
+  padding: 8px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  color: unset;
+
+  :visited {
+    color: unset;
+  }
+
+  :active {
+    color: unset;
+  }
+}
+
+.socialLinksContainer>a>img {
+  max-width: 100%;
+  width: auto;
+  object-fit: scale-down;
+}
+
+.socialLinksContainer>a:first-of-type {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.socialLinksContainer>a:last-of-type {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.homeIntroCoverBrief {
+  > h1 {
+    margin-top: 0;
+    margin-bottom: shared.padding(1);
+    font-size: 3em;
+  }
+
+  > h2 {
+    margin-top: 0;
+    font-size: 1.75em;
+    font-weight: 200;
+  }
+
+  p {
+    font-size: 1.3em;
+    line-height: 1.2em;
+  }
+
+  padding: shared.padding(2);
+
+  border-bottom: 2px solid rgba(shared.$color-lightpink, calc(0.8 * var(--border-alpha, 1)));
+}
+
+.tz-cover-portrait {
+  min-width: 5em;
+  max-width: 100%;
+  height: auto;
+}
+
+.homeIntroCoverPortrait {
+  height: 10em;
+  width: auto;
+}
+
+.mainPageContent:first-child {
+  background: $oddPostColour;
+}
+
+.mainPageContent:nth-child(odd) {
+  background-image: linear-gradient(to bottom, $oddPostColour, rgba($oddPostColour, 0.3));
+}
+
+.mainPageContent:nth-child(even) {
+  background-image: linear-gradient(to bottom, $evenPostColour, rgba($evenPostColour, 0.4));
+}
+
+.mainPageContent:nth-child(n+2) {
+  border-top: 0.15rem solid shared.$color-lightrosey;
+}
+
+@mixin mainFont() {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.coverText {
+  @include mainFont();
+}
+
+.homeIntroCover {
+  min-height: 12em;
+  @include mainFont();
+}
+
+.homeIntroCoverTech {
+  min-width: 2.5em;
+  box-shadow: 0px 0px 10px 5px inset color.mix(#000, shared.$color-roseypink, 30%);
+}
+
+.homeIntroCoverTech button {
+  //@include border-radius(0);
+  //@include button-variant(rgba(color.mix(#000, shared.$color-lightrosey, 30%), 0.5), rgba(color.mix(#000, shared.$color-roseypink, 30%), 0.7));
+
+  padding: 0.2em;
+
+  min-width: 2.5em;
+
+  img, div {
+    min-width: 1.5em;
+    width: 2em;
+  }
+
+  div i {
+    font-size: 1.6em;
+    color: color.mix(#fff, shared.$color-lightrosey, 50%);
+  }
+}
+
+.popover.tech-experience-popover {
+  background: transparent;
+
+  .popover-header {
+    background-image: linear-gradient(to bottom, color.mix(color.mix(#fff, shared.$color-strongpurple, 30%), shared.$color-roseypink, 90%), shared.$color-roseypink);
+    color: shared.$color-light;
+    text-shadow: 1px 1px 3px black;
+  }
+
+  .popover-body {
+    background-image: linear-gradient(45deg, rgba(color.mix(white, shared.$color-strongpurple, 20%), 0.8), rgba(shared.$color-roseypink, 0.9));
+    backdrop-filter: blur(4px);
+    color: shared.$color-light;
+    text-shadow: 1px 1px 2px black;
+  }
+}
+
+.homeHeaderDivider {
+  color: shared.$color-light;
+  opacity: 0.25;
+  height: 1px;
+}
+
+.resumeLink {
+  > svg {
+    transform: translate(0, 10%);
+  }
+}
+
+.coverRoot {
+}

@@ -1,8 +1,16 @@
 import {FunctionComponent} from "preact";
 import styles from "./style.module.scss";
 
-const Header: FunctionComponent = () => {
-    return <div className={['tz-brand-gradient', styles.root].join(' ')}>
+type HeaderProps = {
+    className?: string;
+}
+
+export const HeaderClasses = {
+    Root: 'header-root',
+}
+
+const Header: FunctionComponent<HeaderProps> = ({className, ref}) => {
+    return <div ref={ref} className={['tz-brand-gradient', HeaderClasses.Root, styles.root, className ?? ''].join(' ')}>
     </div>
 }
 

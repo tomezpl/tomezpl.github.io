@@ -9,7 +9,8 @@ div.navbar {
     position: fixed;
     width: 100vw;
     min-height: 4.5rem;
-    border-bottom: 2px solid rgba(shared.$color-lightpink, 0.8);
+    --border-alpha: 1;
+    border-bottom: 2px solid rgba(shared.$color-lightpink, calc(0.8 * var(--border-alpha, 1)));
 }
 
 .tzLogo {
