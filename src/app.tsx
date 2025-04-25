@@ -6,10 +6,6 @@ import pages from './pages';
 import {useRef} from "preact/hooks";
 import {LayoutContext} from "./context/layout-context.ts";
 
-if(typeof window !== 'undefined') {
-
-}
-
 export function App() {
     const headerRef = useRef<HTMLDivElement>(null);
 
@@ -22,7 +18,7 @@ export function App() {
             <ErrorBoundary>
                 <Router>
                     {pages.map(({route, component: PageComponent}) => <PageComponent {...{route}} key={`route ${route}`} />)}
-                    <Route component={() => <div/>} />
+                    <Route default component={() => <div/>} />
                 </Router>
             </ErrorBoundary>
             </LayoutContext.Provider>

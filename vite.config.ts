@@ -32,6 +32,8 @@ export default defineConfig({
     }
   },
   build: {
+    // This is needed for accessing the site with JS disabled, otherwise the CSS doesn't get loaded
+    cssCodeSplit: false
     // cssMinify: 'lightningcss'
   }
 })
