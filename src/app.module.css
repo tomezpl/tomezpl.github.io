@@ -2,4 +2,9 @@
   width: 100vw;
   height: 100%;
   min-height: 100vh;
+
+  grid-template: "header header" auto "sidenav content" auto / auto auto;
+  @media not (scripting: enabled) {
+    display: grid;
+  }
 }

@@ -90,12 +90,18 @@
     --full-sidebar-width: min(15rem, 20vw);
     /*border-right: var(--sidenav-border-size, 0) solid var(--sidenav-border-colour, rgba(0,0,0,0));*/
     box-shadow: 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0)), 0 0 0 0 var(--sidenav-border-colour, rgba(0,0,0,0));
-    height: 100vh;
+    height: 100%;
     width: var(--full-sidebar-width, 4rem);
     min-width: fit-content;
     background-repeat: no-repeat;
+
+    grid-area: sidenav;
+    position: relative;
+
     @media (scripting: enabled) {
         background-size: 0%;
+        height: 100vh;
+        position: fixed;
     }
 
     &.open {
@@ -122,8 +128,6 @@
         pointer-events: none;
     }
 
-    position: fixed;
-
     left: 0;
     top: 0;
 
@@ -146,6 +150,11 @@
         box-shadow: 0 0 0px 1px rgba(255, 255, 255, 0.1);
         border-radius: 4px;
         padding: 0.25em 0.85em;
+
+        // Hide the toggle if JS is disabled as then the sidenav will always be visible anyway (and can't be hidden due to no JS)
+        @media not (scripting: enabled) {
+            visibility: hidden;
+        }
 
         transition: 0.15s box-shadow ease;
 

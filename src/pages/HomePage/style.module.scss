@@ -15,6 +15,10 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
     visibility: hidden;
     pointer-events: none;
   }
+
+  @media not (scripting: enabled) {
+    width: 100%;
+  }
 }
 
 .coverText {
@@ -117,19 +121,44 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
   width: auto;
 }
 
-.mainPageContent:first-child {
-  background: $oddPostColour;
+.mainPageContent {
+  color: shared.$color-light;
+  font-family: "Chakra Petch";
+  font-weight: 200;
+
+  // TODO: make responsive
+  width: 80%;
+  margin: 0 auto;
+
+  h1 {
+    font-weight: 200;
+    font-size: 2.55em;
+    margin-bottom: shared.padding(0.65);
+  }
+
+  p {
+    font-size: 1.3em;
+    margin-top: shared.padding(0.75);
+  }
+
+  padding: shared.padding(3) shared.padding(8);
 }
 
-.mainPageContent:nth-child(odd) {
+.mainPageContent:first-of-type {
+  background: $oddPostColour;
+
+  margin-top: shared.padding(9);
+}
+
+.mainPageContent:nth-of-type(odd) {
   background-image: linear-gradient(to bottom, $oddPostColour, rgba($oddPostColour, 0.3));
 }
 
-.mainPageContent:nth-child(even) {
+.mainPageContent:nth-of-type(even) {
   background-image: linear-gradient(to bottom, $evenPostColour, rgba($evenPostColour, 0.4));
 }
 
-.mainPageContent:nth-child(n+2) {
+.mainPageContent:nth-of-type(n+2) {
   border-top: 0.15rem solid shared.$color-lightrosey;
 }
 
