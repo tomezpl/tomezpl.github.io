@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use '~/shared';
+
+.webExperienceRoot {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto;
+  gap: 0 shared.padding(15);
+
+  > p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  > div {
+    grid-column: 2;
+
+    // Is this a hack? Yes. But you're not seriously going to have 1000 rows, are you?
+    grid-row: 1 / 1000;
+  }
+}
+
+.skillExperienceInfoGroupRoot {
+  min-width: 2.5em;
+  box-shadow: 0px 0px 10px 5px inset color.mix(#000, shared.$color-roseypink, 30%);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.skillExperienceInfoGroupRoot > .skillExperienceInfo {
+  flex-basis: calc(100% / 4);
+  flex-shrink: 1;
+  flex-grow: 1;
+  $colourStart: rgba(color.mix(#000, shared.$color-lightrosey, 30%), 0.5);
+  $colourEnd: rgba(color.mix(#000, shared.$color-roseypink, 30%), 0.7);
+  background-image: linear-gradient(to bottom, $colourStart, $colourEnd);
+  border: 1px solid rgba(color.mix(#000, shared.$color-roseypink, 30%), 0.7);
+
+  cursor: pointer;
+
+  filter: none;
+  transition: filter ease-in 0.12s;
+
+  &:hover, &:active, &:focus {
+    filter: brightness(130%);
+  }
+
+  padding: 0.2em;
+
+  min-width: 2.5em;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+
+  img, div {
+    min-width: 1.5em;
+    width: 2em;
+    object-fit: contain;
+  }
+
+  svg {
+    color: color.mix(#fff, shared.$color-lightrosey, 50%);
+  }
+}
