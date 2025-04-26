@@ -7,16 +7,28 @@ div.navbar {
 
 .root {
     position: fixed;
-    width: 100vw;
     min-height: 4.5rem;
     --border-alpha: 1;
     border-bottom: 2px solid rgba(shared.$color-lightpink, calc(0.8 * var(--border-alpha, 1)));
     grid-area: header;
+
+    display: grid;
+    grid-template: "spacing tz-logo page-title" 100% / 30% 40% 30%;
+    justify-items: center;
+    padding: shared.padding(3) 0;
+    // TODO:    the logo ends up being looking slightly off-center when JS is disabled
+    //          since due to position: fixed it ignores the size of the sidenav despite being partially obscured by it
+    width: 100vw;
+    backdrop-filter: blur(1px);
+    z-index: shared.$zindex-header;
 }
 
 .tzLogo {
     height: 4.5em;
     width: auto;
+    grid-area: tz-logo;
+    border-radius: 95%;
+    backdrop-filter: blur(2px);
 }
 
 .navIcon {

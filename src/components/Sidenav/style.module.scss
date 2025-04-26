@@ -95,6 +95,8 @@
     min-width: fit-content;
     background-repeat: no-repeat;
 
+    z-index: shared.$zindex-sidenav;
+
     grid-area: sidenav;
     position: sticky;
 
