@@ -48,6 +48,8 @@ body {
     background-image: linear-gradient(-90deg, color.mix(#000, color.mix(#fff, $color-roseypink, 10%), 75%), color.mix(#000, $color-purple, 70%));
 }
 
+
+
 @function padding($scale) {
     $basePadding: 0.25em;
     @return $basePadding * $scale;

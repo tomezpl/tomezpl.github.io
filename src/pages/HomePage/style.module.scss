@@ -150,8 +150,8 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
   margin-top: shared.padding(9);
 }
 
-.mainPageContent:last-of-type {
-  margin-bottom: shared.padding(9);
+.homePageRoot {
+  padding-bottom: shared.padding(9);
 }
 
 .mainPageContent:nth-of-type(odd) {

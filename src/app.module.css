@@ -8,3 +8,12 @@
     display: grid;
   }
 }
+
+html {
+  line-height: unset;
+  overflow: auto;
+}
+
+body {
+  overflow: clip;
+}

@@ -21,7 +21,7 @@ const HomePage: FunctionComponent = () => {
 
     return <MainLayout skipDummyHeader>
         <Cover />
-        <div>
+        <div className={styles.homePageRoot}>
         {
             sections.map(([sectionName, SectionComponent]) => <div className={styles.mainPageContent} key={sectionName}><SectionComponent /></div> )
         }
