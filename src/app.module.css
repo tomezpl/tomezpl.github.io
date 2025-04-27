@@ -12,6 +12,7 @@
 html {
   line-height: unset;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 body {

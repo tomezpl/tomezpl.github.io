@@ -2,8 +2,9 @@ import {SectionBase} from "./SectionBase.tsx";
 
 import styles from './experience.module.scss';
 import {useMemo} from "preact/hooks";
-import {webTechExperience} from "./constants.tsx";
+import {webTechExperience, portfolioEntries} from "./constants.tsx";
 import {ButtonWithPopover} from "./ButtonWithPopover.tsx";
+import {PortfolioCarousel} from "./PortfolioCarousel.tsx";
 
 export function Experience() {
     // Skill-specific logos and descriptions of my experience with them.
@@ -28,6 +29,9 @@ export function Experience() {
             <div className={styles.skillExperienceInfoGroupRoot}>
                 {skillExperienceInfo}
             </div>
+        </div>
+        <div className={styles.portfolioRoot}>
+            <PortfolioCarousel idBase={'professionalPortfolio'} entries={portfolioEntries} />
         </div>
     </SectionBase>
 }

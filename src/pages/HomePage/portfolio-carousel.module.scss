@@ -1,0 +1,132 @@
+@use 'sass:color';
+@use '~/shared';
+@use '~/breakpoints';
+
+$marginTop: 6;
+
+// Offsetting child elements of the slide so we can scroll into view when cycling the carousel images, without the header obscuring any part of the slide
+// 4.5 is a magic number, I'm not exactly sure why it works (probably ratio of marginTop and header height?) but it perfectly scrolls to the slide header
+.root {
+  margin-top: shared.padding($marginTop);
+  position: relative;
+  top: calc(#{shared.padding($marginTop)} * -4.5);
+  margin-bottom: shared.padding($marginTop);
+  .slideRoot > * {
+    transform: translate(0, calc(#{shared.padding($marginTop)} * 4.5));
+  }
+
+  // Need to disable pointer-events on as many things as possible as otherwise this prevents hover events from the skill icons in the previous section (due to the transform: translate)
+  pointer-events: none;
+
+  // Disabled JS and initial state carousel handling
+  &:not(:has(.slideRoot[data-iscurrentslide="true"])) {
+    .slideRoot {
+      &:not(:has(~:target)) {
+        &:first-of-type {
+          display: grid;
+        }
+      }
+
+      &:not(:target) {
+        display: none;
+      }
+
+      &:target {
+        display: grid;
+      }
+    }
+  }
+
+  &:has([data-iscurrentslide="true"]) {
+    .slideRoot {
+      display: none;
+    }
+
+    .slideRoot[data-iscurrentslide="true"] {
+      display: grid;
+    }
+  }
+}
+
+.slideRoot {
+  grid-template: "text image-container" auto / 40% 60%;
+  gap: 0 shared.padding(5);
+
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.textContainer {
+  grid-area: text;
+  pointer-events: auto;
+}
+
+.imageContainer {
+  display: grid;
+  grid-area: image-container;
+  grid-template: "prev image next" auto / 4rem auto 4rem;
+  background-image: var(--image-src), var(--image-src);
+  background-size: contain, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+
+  box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+
+  --border-round: 6px;
+
+  &, .nextBtn, .prevBtn {
+    border-radius: var(--border-round);
+  }
+
+  pointer-events: none;
+}
+
+.image {
+  grid-area: image;
+  max-width: 100%;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.nextBtn, .prevBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px) contrast(60%) brightness(75%);
+  appearance: none;
+  pointer-events: none;
+
+  --button-alpha: 0.75;
+  &, &:active, &:focus, &:enabled, &:active, &:visited, &:hover {
+    color: rgba(#fff, var(--button-alpha));
+    text-decoration: none;
+  }
+
+  transition: color 0.1s ease;
+
+  &:hover {
+    --button-alpha: 1;
+  }
+
+  // Simulate a drop-shadow on the icon by using a radial gradiant (stop early, like 70%, to make sure it doesn't get cropped)
+  svg {
+    background: radial-gradient(ellipse, rgba(0,0,0,0.5) 50%, transparent 70%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    pointer-events: all;
+  }
+}
+
+.prevBtn {
+  grid-area: prev;
+  border-bottom-right-radius: 0!important;
+  border-top-right-radius: 0!important;
+}
+
+.nextBtn {
+  grid-area: next;
+  border-bottom-left-radius: 0!important;
+  border-top-left-radius: 0!important;
+}

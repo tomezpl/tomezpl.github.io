@@ -1,4 +1,4 @@
-import {SkillExperienceInfo} from "./types.ts";
+import {PortfolioEntry, SkillExperienceInfo} from "./types.ts";
 import dotNetCoreLogo from '../../assets/NET_Core_Logo.png';
 import vueLogo from '../../assets/512px-Vue.js_Logo_2.png';
 import bsLogo from '../../assets/Bootstrap_logo.png';
@@ -7,6 +7,8 @@ import ueLogo from '../../assets/ue.png';
 import unityLogo from '../../assets/unityLogo.png';
 import openGlLogo from '../../assets/opengl.png';
 import physxLogo from '../../assets/physx.png';
+import navigateMe1 from '../../assets/portfolio/professional/navigateme.png';
+import navigateMe2 from '../../assets/portfolio/professional/navigateme2.png';
 import {BsListCheck, BsRobot} from "react-icons/bs";
 
 const webTechExperience = {
@@ -76,3 +78,19 @@ const gameTechExperience = {
 const GameTechExperience: Record<keyof typeof gameTechExperience, SkillExperienceInfo> = gameTechExperience;
 
 export {GameTechExperience as gameTechExperience};
+
+export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
+    {
+        title: 'Navigate-Me',
+        brief: [
+            {
+                text: 'Navigate-Me is a campus navigation system I helped develop and maintain for over 4 years.\nI have joined the project close to its release, so my involvement was primarily to keep the system\'s maps up to date and adapt to new requirements over time (e.g. special maps to support social distancing measures during the COVID-19 outbreak).',
+                image: navigateMe1,
+            },
+            {
+                text: 'In addition to maintaining and improving the project\'s codebase, I was tasked with creating map data for the University campus.',
+                image: navigateMe2
+            }
+        ]
+    }
+]
