@@ -100,6 +100,10 @@
     grid-area: sidenav;
     position: sticky;
 
+    // Offset the entire sidenav contents from the top a bit so the toggle ends up more center-aligned with the logo
+    // (can't really do it properly as the logo is in the Header container whilst the toggle is part of the Sidenav)
+    padding-top: 0.9rem;
+
     @media (scripting: enabled) {
         background-size: 0%;
         position: fixed;
