@@ -1,12 +1,16 @@
 @use 'sass:color';
 @use '~/shared';
 
-.webExperienceRoot {
+.experienceRoot {
   display: grid;
   grid-template-columns: auto auto;
   grid-auto-rows: auto;
-  gap: 0 shared.padding(15);
+  gap: 0 shared.padding(4);
   position: relative;
+
+  --experience-start-row: 1;
+  // Is this a hack? Yes. But you're not seriously going to have 1000 rows, are you?
+  --experience-end-row: 1000;
 
   > p {
     grid-column: 1;
@@ -16,8 +20,7 @@
   > div {
     grid-column: 2;
 
-    // Is this a hack? Yes. But you're not seriously going to have 1000 rows, are you?
-    grid-row: 1 / 1000;
+    grid-row: var(--experience-start-row) / var(--experience-end-row);
   }
 }
 

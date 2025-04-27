@@ -1,0 +1,12 @@
+.hobbyistRoot {
+  --experience-start-row: 1;
+  --experience-end-row: 3;
+
+  > div {
+    grid-column: 1;
+  }
+
+  > p {
+    grid-column: 2;
+  }
+}

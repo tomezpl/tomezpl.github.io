@@ -1,0 +1,30 @@
+import {SectionBase} from "./SectionBase.tsx";
+import {useMemo} from "preact/hooks";
+import {gameTechExperience} from "./constants.tsx";
+import {ButtonWithPopover} from "./ButtonWithPopover.tsx";
+import experienceStyles from './experience.module.scss';
+import styles from './hobbyist.module.scss';
+
+export function Hobbyist() {
+    const skillExperience = useMemo(() => Object.entries(gameTechExperience).map(([key, experienceInfo]) => <ButtonWithPopover key={key} {...experienceInfo} />), [gameTechExperience]);
+
+    return <SectionBase title={'Personal projects & hobbyist development'}>
+        <p>In my personal projects, however, I often challenge myself to learning
+            completely different areas, such as graphics rendering and physics
+            simulation in a game programming context.
+        </p>
+        <div className={[experienceStyles.experienceRoot, styles.hobbyistRoot].join(' ')}>
+            <p>
+                I have working knowledge of industry-standard game engines Unity,
+                Unreal and Godot, as well as graphics and physics middleware including
+                OpenGL, PhysX and Bullet. I am familiar with many math concepts
+                commonly used for rendering and lighting (algebra, vector math,
+                calculus), as well as basic Newtonian mechanics required for physics
+                and gameplay programming.
+            </p>
+            <div className={experienceStyles.skillExperienceInfoGroupRoot}>
+                {skillExperience}
+            </div>
+        </div>
+    </SectionBase>
+}

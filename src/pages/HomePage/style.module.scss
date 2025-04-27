@@ -150,6 +150,10 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
   margin-top: shared.padding(9);
 }
 
+.mainPageContent:last-of-type {
+  margin-bottom: shared.padding(9);
+}
+
 .mainPageContent:nth-of-type(odd) {
   background-image: linear-gradient(to bottom, $oddPostColour, rgba($oddPostColour, 0.3));
 }

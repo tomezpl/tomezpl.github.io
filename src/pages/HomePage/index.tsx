@@ -5,6 +5,8 @@ import MainLayout from "../../layouts/MainLayout";
 import {Cover} from "./Cover.tsx";
 import {useMemo} from "preact/hooks";
 import {Experience} from "./Experience.tsx";
+import {Hobbyist} from "./Hobbyist.tsx";
+import {TeamPlayer} from "./TeamPlayer.tsx";
 
 export const HomePageIds = {
     CoverBrief: 'homeIntroCoverBrief'
@@ -12,7 +14,9 @@ export const HomePageIds = {
 
 const HomePage: FunctionComponent = () => {
     const sections = useMemo<ReadonlyArray<[string, FunctionComponent]>>(() => [
-        ['experience', Experience]
+        ['experience', Experience],
+        ['hobbyist', Hobbyist],
+        ['team-player', TeamPlayer]
     ], []);
 
     return <MainLayout skipDummyHeader>
@@ -22,7 +26,6 @@ const HomePage: FunctionComponent = () => {
             sections.map(([sectionName, SectionComponent]) => <div className={styles.mainPageContent} key={sectionName}><SectionComponent /></div> )
         }
         </div>
-        <div style={{height: '1000px'}}></div>
     </MainLayout>
 }
 

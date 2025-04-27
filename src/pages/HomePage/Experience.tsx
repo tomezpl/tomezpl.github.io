@@ -3,24 +3,16 @@ import {SectionBase} from "./SectionBase.tsx";
 import styles from './experience.module.scss';
 import {useMemo} from "preact/hooks";
 import {webTechExperience} from "./constants.tsx";
-import {SkillPopover} from "./SkillPopover.tsx";
-import {Fragment} from "preact";
+import {ButtonWithPopover} from "./ButtonWithPopover.tsx";
 
 export function Experience() {
     // Skill-specific logos and descriptions of my experience with them.
     // We're using HTML buttons here instead of divs because we get access to a focused state which basically means free on-click without JS
-    const skillExperienceInfo = useMemo(() => Object.entries(webTechExperience).map(([key, {title, icon: Icon, ...rest}]) => (
-        <Fragment key={key}>
-            <button type={'button'} className={styles.skillExperienceInfo} key={key} title={title}>
-                {typeof Icon === 'string' ? <img src={Icon} /> : <Icon size={'2em'} />}
-            </button>
-            <SkillPopover experienceInfo={{title, ...rest}} />
-        </Fragment>)
-    ), [webTechExperience]);
+    const skillExperienceInfo = useMemo(() => Object.entries(webTechExperience).map(([key, experienceInfo]) => <ButtonWithPopover key={key} {...experienceInfo} />), [webTechExperience]);
 
     return <SectionBase title={'Professional experience'}>
         <p>Due to programming being both my hobby and an integral part of my job, I have delved into a multitude of languages and domains.</p>
-        <div className={styles.webExperienceRoot}>
+        <div className={styles.experienceRoot}>
             <p>My current professional background comes from a Web development
                 perspective, which entails full-stack development using modern,
                 open-source technologies, while also interfacing with
