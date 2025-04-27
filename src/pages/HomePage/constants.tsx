@@ -8,7 +8,7 @@ import {BsListCheck, BsRobot} from "react-icons/bs";
 const webTechExperience = {
     dotnet: {
         title: '.NET Core',
-        brief: '',
+        brief: '4 years using .NET Core in a professional capacity',
         icon: dotNetCoreLogo
     },
     vue: {
@@ -28,8 +28,8 @@ const webTechExperience = {
     },
     azure: {
         title: 'Azure',
-        brief: `3 years' experience with using the Microsoft Azure platform. Knowledgeable about common tasks such as configuring & deploying app services, debugging deployed code, etc.
-                Familiar with the Azure DevOps platform, Git workflow, Continuous Testing, Azure Pipelines and Azure Artifacts.`,
+        brief: `3 years' experience with using the platform. Knowledge of common tasks, e.g. configuring & deploying app services, debugging deployed code, etc.
+                Familiar with Azure DevOps, Git workflow, Continuous Testing, Pipelines and Artifacts.`,
         icon: azureLogo
     },
     chatbot: {

@@ -3,12 +3,19 @@ import {SectionBase} from "./SectionBase.tsx";
 import styles from './experience.module.scss';
 import {useMemo} from "preact/hooks";
 import {webTechExperience} from "./constants.tsx";
+import {SkillPopover} from "./SkillPopover.tsx";
+import {Fragment} from "preact";
 
 export function Experience() {
-    const skillExperienceInfo = useMemo(() => Object.entries(webTechExperience).map(([key, {title, icon: Icon}]) => (
-        <div className={styles.skillExperienceInfo} key={key} title={title}>
-            {typeof Icon === 'string' ? <img src={Icon} /> : <Icon size={'2em'} />}
-        </div>)
+    // Skill-specific logos and descriptions of my experience with them.
+    // We're using HTML buttons here instead of divs because we get access to a focused state which basically means free on-click without JS
+    const skillExperienceInfo = useMemo(() => Object.entries(webTechExperience).map(([key, {title, icon: Icon, ...rest}]) => (
+        <Fragment key={key}>
+            <button type={'button'} className={styles.skillExperienceInfo} key={key} title={title}>
+                {typeof Icon === 'string' ? <img src={Icon} /> : <Icon size={'2em'} />}
+            </button>
+            <SkillPopover experienceInfo={{title, ...rest}} />
+        </Fragment>)
     ), [webTechExperience]);
 
     return <SectionBase title={'Professional experience'}>

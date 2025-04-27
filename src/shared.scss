@@ -22,8 +22,9 @@ $color-beigepink: #E5B8C0;
 $color-beigepurple: #B395A3;
 $color-lightpink: color.mix(#fff, $color-lightrosey, 40%);
 
-$zindex-header: 1000;
-$zindex-sidenav: 1001;
+$zindex-popover: 1000;
+$zindex-header: 1001;
+$zindex-sidenav: 1002;
 
 body {
     font-family: "Inter", "system-ui";
