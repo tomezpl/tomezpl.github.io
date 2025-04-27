@@ -38,7 +38,7 @@ const webTechExperience = {
     },
     chatbot: {
         title: 'Conversational AI',
-        brief: `4 years of experience developing conversational AI services (chat bots). Solid working knowledge of Microsoft's Bot Framework, Bot Builder SDK, Composer, as well as Natural Language Processing solutions such as Microsoft LUIS. Basic familiarity with machine learning concepts.`,
+        brief: `4 years of experience developing chat bots. Solid working knowledge of Microsoft's Bot Framework, Bot Builder SDK, Composer, as well as Natural Language Processing solutions such as Microsoft LUIS. Basic familiarity with machine learning concepts.`,
         icon: BsRobot
     }
 } as const;

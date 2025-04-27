@@ -6,7 +6,7 @@ import experienceStyles from './experience.module.scss';
 import styles from './hobbyist.module.scss';
 
 export function Hobbyist() {
-    const skillExperience = useMemo(() => Object.entries(gameTechExperience).map(([key, experienceInfo]) => <ButtonWithPopover key={key} {...experienceInfo} />), [gameTechExperience]);
+    const skillExperience = useMemo(() => Object.entries(gameTechExperience).map(([key, experienceInfo]) => <ButtonWithPopover align={'left'} key={key} {...experienceInfo} />), [gameTechExperience]);
 
     return <SectionBase title={'Personal projects & hobbyist development'}>
         <p>In my personal projects, however, I often challenge myself to learning
@@ -22,7 +22,7 @@ export function Hobbyist() {
                 calculus), as well as basic Newtonian mechanics required for physics
                 and gameplay programming.
             </p>
-            <div className={experienceStyles.skillExperienceInfoGroupRoot}>
+            <div className={[experienceStyles.skillExperienceInfoGroupRoot, styles.gameTechExperienceInfo].join(' ')}>
                 {skillExperience}
             </div>
         </div>
