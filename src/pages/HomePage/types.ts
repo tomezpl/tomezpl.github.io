@@ -1,4 +1,4 @@
-import type {FunctionComponent} from "preact";
+import type {FunctionComponent, VNode} from "preact";
 
 export type SkillExperienceInfo = {
     title: string;
@@ -8,6 +8,7 @@ export type SkillExperienceInfo = {
 
 export type PortfolioEntry = {
     title: string;
+    subtitle?: VNode;
 } & ({
     brief: string | FunctionComponent;
     image: ReadonlyArray<string> | string;

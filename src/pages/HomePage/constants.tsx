@@ -10,6 +10,7 @@ import physxLogo from '../../assets/physx.png';
 import navigateMe1 from '../../assets/portfolio/professional/navigateme.png';
 import navigateMe2 from '../../assets/portfolio/professional/navigateme2.png';
 import {BsListCheck, BsRobot} from "react-icons/bs";
+import {PortfolioProductDetails} from "./PortfolioProductDetails.tsx";
 
 const webTechExperience = {
     dotnet: {
@@ -82,6 +83,7 @@ export {GameTechExperience as gameTechExperience};
 export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
     {
         title: 'Navigate-Me',
+        subtitle: <PortfolioProductDetails company={'University of Lincoln'} dates={['2018', '2022']} link={'https://navigateme.lincoln.ac.uk'} />,
         brief: [
             {
                 text: 'Navigate-Me is a campus navigation system I helped develop and maintain for over 4 years.\nI have joined the project close to its release, so my involvement was primarily to keep the system\'s maps up to date and adapt to new requirements over time (e.g. special maps to support social distancing measures during the COVID-19 outbreak).',

@@ -10,12 +10,12 @@ type PortfolioCarouselProps = {
 }
 
 export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
-    const flatSlides = useMemo<ReadonlyArray<{title: string, text: ReactNode, image: string}>>(() => {
+    const flatSlides = useMemo<ReadonlyArray<{title: string, subtitle?: ReactNode, text: ReactNode, image: string}>>(() => {
         return entries.flatMap((entry) => {
             const BriefComponent = typeof entry.brief === 'function' ? entry.brief : null;
             return Array.isArray(entry.brief)
-                ? (entry.brief as {text: string | FunctionComponent, image: string}[]).map(({text: Text, image}) => ({title: entry.title, text: typeof Text === 'string' ? Text : <Text />, image}))
-                : [{title: entry.title, text: (BriefComponent ? <BriefComponent /> : entry.brief), image: (entry as {image: string}).image}];
+                ? (entry.brief as {text: string | FunctionComponent, image: string}[]).map(({text: Text, image}) => ({title: entry.title, subtitle: entry.subtitle, text: typeof Text === 'string' ? Text : <Text />, image}))
+                : [{title: entry.title, subtitle: entry.subtitle, text: (BriefComponent ? <BriefComponent /> : entry.brief), image: (entry as {image: string}).image}];
             });
     }, [entries]);
 
@@ -46,12 +46,13 @@ export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
     }, [cycleSlide]);
 
     return <div className={styles.root}>
-        {flatSlides.map(({title, text, image}, i, {length: total}) => <div
+        {flatSlides.map(({title, subtitle, text, image}, i, {length: total}) => <div
             data-iscurrentslide={currentlyActiveSlide === i ? 'true' : 'false'}
             className={styles.slideRoot} {...(getId(i) ? {id: getId(i)!} : {})}
             key={`${title} ${text} ${i}`}>
             <div className={styles.textContainer}>
                 <h1>{title}</h1>
+                <h2>{subtitle ?? null}</h2>
                 {typeof text === 'string' ? <p>{text}</p> : text}
             </div>
             <div className={styles.imageContainer} style={{'--image-src': `url(${image})`}}>

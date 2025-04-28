@@ -85,15 +85,31 @@ $marginTop: 6;
   @media (max-width: breakpoints.$lg) {
     grid-template: "text" auto "image-container" auto / 100%;
   }
-
-  h1 {
-    margin-top: 0;
-  }
 }
 
 .textContainer {
   grid-area: text;
   pointer-events: auto;
+
+  > h1, > h2 {
+    margin-top: 0;
+  }
+
+  > h2 {
+    font-size: 1em;
+    font-weight: 100;
+    a {
+      transition: color 0.2s ease;
+      font-weight: 200;
+      &, &:focus, &:active, &:visited {
+        color: #{color.mix(#fff, shared.$color-orange, 20%)};
+      }
+      &:hover {
+        color: shared.$color-orange;
+      }
+      text-decoration: none;
+    }
+  }
 }
 
 .imageContainer {
