@@ -83,7 +83,7 @@ $marginTop: 6;
   gap: 0 shared.padding(5);
 
   @media (max-width: breakpoints.$lg) {
-    grid-template: "text" auto "image-container" auto / 100%;
+    grid-template: "image-container" auto "text" auto / 100%;
   }
 }
 
@@ -118,6 +118,16 @@ $marginTop: 6;
     display: flex;
     flex-direction: row;
     gap: #{shared.padding(1.5)} #{shared.padding(3)};
+
+    &:before {
+      content: 'Technologies used';
+      position: absolute;
+      transform: translate(0, calc(#{shared.padding(-1)} - 0.5em));
+      right: 0;
+
+    }
+    padding-top: shared.padding(1);
+    padding-right: 9em;
 
     > div, > img {
       flex-basis: 2em;

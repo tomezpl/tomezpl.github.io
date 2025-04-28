@@ -12,6 +12,11 @@ import navigateMe2 from '../../assets/portfolio/professional/navigateme2.png';
 import findAPc1 from '../../assets/portfolio/professional/findapc.png';
 import findAPc2 from '../../assets/portfolio/professional/findapc2.png';
 import jsxLogo from '../../assets/jsx.png';
+import rgsDashboard1 from '../../assets/portfolio/professional/rgs-dashboard.webp';
+import tsLogo from '../../assets/ts-logo-128.svg';
+import reactLogo from '../../assets/React.svg';
+import muiLogo from '../../assets/mui.png';
+import esbuildLogo from '../../assets/esbuild.svg';
 import {BsListCheck, BsRobot} from "react-icons/bs";
 import {PortfolioProductDetails} from "./PortfolioProductDetails.tsx";
 
@@ -83,7 +88,11 @@ const GameTechExperience: Record<keyof typeof gameTechExperience, SkillExperienc
 
 export {GameTechExperience as gameTechExperience};
 
-const uolCwdStack = [<img alt={'JSX'} src={jsxLogo} key={'jsx'} />, <img alt={'Vue.js'} src={vueLogo} key={'vue'} />, <img alt={'Bootstrap & BootstrapVue'} src={bsLogo} key={'bootstrap'} />,  <img alt={'.NET Core'} src={dotNetCoreLogo} key={'dotnet'} />] as const;
+function alt(altText: string) {
+    return {alt: altText, title: altText} as const;
+}
+
+const uolCwdStack = [<img {...alt('JSX')} src={jsxLogo} key={'jsx'} />, <img {...alt('Vue.js')} src={vueLogo} key={'vue'} />, <img {...alt('Bootstrap & BootstrapVue')} src={bsLogo} key={'bootstrap'} />,  <img {...alt('.NET Core')} src={dotNetCoreLogo} key={'dotnet'} />] as const;
 
 export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
     {
@@ -122,5 +131,19 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
             }
         ],
         technologies: uolCwdStack
+    },
+    {
+        title: 'RGS Dashboard',
+        subtitle: <PortfolioProductDetails company={'Blueprint Gaming'} dates={['2024']} />,
+        brief: [
+            {
+                text: 'I was tasked with designing and developing an internal data visualisation site that would be featured on displays around the offices at Blueprint.',
+                image: rgsDashboard1,
+            }
+        ],
+        technologies: [
+            <img {...alt('TypeScript')} src={tsLogo} key={'typescript'} />, <img {...alt('TSX')} src={jsxLogo} key={'jsx'} />, <img {...alt('React')} src={reactLogo} key={'react'} />,
+            <img {...alt('Material UI')} src={muiLogo} key={'mui'} />, <img {...alt('ESBuild')} src={esbuildLogo} key={'esbuild'} />
+        ]
     }
 ]

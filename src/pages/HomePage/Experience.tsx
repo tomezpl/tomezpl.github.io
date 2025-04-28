@@ -31,6 +31,7 @@ export function Experience() {
             </div>
         </div>
         <div className={styles.portfolioRoot}>
+            <h1>Portfolio</h1>
             <PortfolioCarousel idBase={'professionalPortfolio'} entries={portfolioEntries} />
         </div>
     </SectionBase>
