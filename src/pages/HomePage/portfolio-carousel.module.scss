@@ -108,6 +108,9 @@ $marginTop: 6;
         color: shared.$color-orange;
       }
       text-decoration: none;
+
+      // Prevent the external link text from wrapping into a new line
+      display: inline-block;
     }
   }
 }
@@ -181,12 +184,16 @@ $marginTop: 6;
 
 .prevBtn {
   grid-area: prev;
+
+  // Disable border rounding on the inner edge
   border-bottom-right-radius: 0!important;
   border-top-right-radius: 0!important;
 }
 
 .nextBtn {
   grid-area: next;
+
+  // Disable border rounding on the inner edge
   border-bottom-left-radius: 0!important;
   border-top-left-radius: 0!important;
 }
