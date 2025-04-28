@@ -11,6 +11,12 @@ $marginTop: 6;
   position: relative;
   top: calc(#{shared.padding($marginTop)} * -4.5);
   margin-bottom: shared.padding($marginTop);
+  display: grid;
+  > .slideRoot {
+    grid-row: 1;
+    grid-column: 1;
+    transition: opacity 0.2s ease;
+  }
   .slideRoot > * {
     transform: translate(0, calc(#{shared.padding($marginTop)} * 4.5));
   }
@@ -24,26 +30,50 @@ $marginTop: 6;
       &:not(:has(~:target)) {
         &:first-of-type {
           display: grid;
+          opacity: 1;
+          &, & * {
+            pointer-events: auto;
+          }
         }
       }
 
       &:not(:target) {
-        display: none;
+        //display: none;
+        display: grid;
+        opacity: 0;
+        &, & * {
+          pointer-events: none;
+        }
       }
 
       &:target {
         display: grid;
+        opacity: 1;
+        &, & * {
+          pointer-events: auto;
+        }
       }
     }
   }
 
   &:has([data-iscurrentslide="true"]) {
     .slideRoot {
-      display: none;
+      //display: none;
+      display: grid;
+      opacity: 0;
+
+      &, & * {
+        pointer-events: none;
+      }
     }
 
     .slideRoot[data-iscurrentslide="true"] {
       display: grid;
+      opacity: 1;
+
+      &, & * {
+        pointer-events: auto;
+      }
     }
   }
 }
