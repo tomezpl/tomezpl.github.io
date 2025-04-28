@@ -9,6 +9,7 @@ export type SkillExperienceInfo = {
 export type PortfolioEntry = {
     title: string;
     subtitle?: VNode;
+    technologies?: ReadonlyArray<VNode>;
 } & ({
     brief: string | FunctionComponent;
     image: ReadonlyArray<string> | string;

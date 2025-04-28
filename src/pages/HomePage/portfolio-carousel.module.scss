@@ -113,6 +113,22 @@ $marginTop: 6;
       display: inline-block;
     }
   }
+
+  > .technologies {
+    display: flex;
+    flex-direction: row;
+    gap: #{shared.padding(1.5)} #{shared.padding(3)};
+
+    > div, > img {
+      flex-basis: 2em;
+      flex-grow: 0;
+      height: 2em;
+    }
+    > img {
+      object-fit: contain;
+      width: auto;
+    }
+  }
 }
 
 .imageContainer {

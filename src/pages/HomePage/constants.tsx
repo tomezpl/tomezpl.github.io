@@ -9,6 +9,9 @@ import openGlLogo from '../../assets/opengl.png';
 import physxLogo from '../../assets/physx.png';
 import navigateMe1 from '../../assets/portfolio/professional/navigateme.png';
 import navigateMe2 from '../../assets/portfolio/professional/navigateme2.png';
+import findAPc1 from '../../assets/portfolio/professional/findapc.png';
+import findAPc2 from '../../assets/portfolio/professional/findapc2.png';
+import jsxLogo from '../../assets/jsx.png';
 import {BsListCheck, BsRobot} from "react-icons/bs";
 import {PortfolioProductDetails} from "./PortfolioProductDetails.tsx";
 
@@ -80,19 +83,44 @@ const GameTechExperience: Record<keyof typeof gameTechExperience, SkillExperienc
 
 export {GameTechExperience as gameTechExperience};
 
+const uolCwdStack = [<img alt={'JSX'} src={jsxLogo} key={'jsx'} />, <img alt={'Vue.js'} src={vueLogo} key={'vue'} />, <img alt={'Bootstrap & BootstrapVue'} src={bsLogo} key={'bootstrap'} />,  <img alt={'.NET Core'} src={dotNetCoreLogo} key={'dotnet'} />] as const;
+
 export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
     {
         title: 'Navigate-Me',
         subtitle: <PortfolioProductDetails company={'University of Lincoln'} dates={['2018', '2022']} link={'https://navigateme.lincoln.ac.uk'} />,
         brief: [
             {
-                text: 'Navigate-Me is a campus navigation system I helped develop and maintain for over 4 years.\nI have joined the project close to its release, so my involvement was primarily to keep the system\'s maps up to date and adapt to new requirements over time (e.g. special maps to support social distancing measures during the COVID-19 outbreak).',
+                text: () => <>
+                    <p>
+                        Navigate-Me is a campus navigation system I helped develop and maintain for over 4 years. Users can choose a starting point (or use geolocation) and destination, and the service will render a path, complete with text instructions for each segment.
+                    </p>
+                    <p>
+                        I have joined the project close to its release, so my involvement was primarily to keep the system's maps up to date and adapt to new requirements over time (e.g. special maps to support social distancing measures during the COVID-19 outbreak).
+                    </p>
+                </>,
                 image: navigateMe1,
             },
             {
                 text: 'In addition to maintaining and improving the project\'s codebase, I was tasked with creating map data for the University campus.',
                 image: navigateMe2
             }
-        ]
+        ],
+        technologies: uolCwdStack
+    },
+    {
+        title: 'Find-A-PC',
+        subtitle: <PortfolioProductDetails company={'University of Lincoln'} dates={['2018', '2022']} link={'https://findapc.lincoln.ac.uk'} />,
+        brief: [
+            {
+                text: 'Find-A-PC is University of Lincoln\'s Web service designed to help students & staff locate nearest available workspaces. Select buildings & rooms can be viewed as maps populated with live tracked machine availability data, labelling each machine on the map with its availability status using a different colour for each state.',
+                image: findAPc1
+            },
+            {
+                text: 'I have joined the team once the service was already in operation, and was later responsible for introducing new features as well as long-term maintenance. Part of the challenge was implementing and maintaining the backend code which needed to use different strategies for polling machine availability data depending on their environment (Windows host/thin client/Mac OS)',
+                image: findAPc2
+            }
+        ],
+        technologies: uolCwdStack
     }
 ]
