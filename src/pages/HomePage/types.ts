@@ -1,4 +1,4 @@
-import type {FunctionComponent, VNode} from "preact";
+import type {FunctionComponent, VNode} from 'preact';
 
 export type SkillExperienceInfo = {
     title: string;

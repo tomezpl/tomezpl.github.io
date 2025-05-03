@@ -1,4 +1,4 @@
-import {SkillExperienceInfo} from "./types.ts";
+import {SkillExperienceInfo} from './types.ts';
 import styles from './skill-popover.module.scss';
 
 type SkillPopoverProps = {

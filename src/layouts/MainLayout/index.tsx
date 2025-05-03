@@ -1,6 +1,6 @@
-import type {PropsWithChildren} from "react";
+import type {PropsWithChildren} from 'react';
 import style from './style.module.scss';
-import Header from "../../components/Header";
+import Header from '~/components/Header';
 
 type MainLayoutProps = {
     skipDummyHeader?: boolean;

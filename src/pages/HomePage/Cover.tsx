@@ -1,12 +1,12 @@
-import {useCallback, useEffect, useRef} from "preact/hooks";
-import {useHeader} from "../../hooks/use-header.ts";
-import styles from "./style.module.scss";
-import Header from "../../components/Header";
-import githubLogo from "../../assets/GitHub-Mark-Light-64px.png";
-import resumePdf from "../../assets/Tomasz Zając - CV Public.pdf";
-import {BsFileEarmarkPersonFill} from "react-icons/bs";
-import linkedinLogo from "../../assets/linkedin.png";
-import {HomePageIds} from "./index.tsx";
+import {useCallback, useEffect, useRef} from 'preact/hooks';
+import {useHeader} from '~/hooks/use-header';
+import styles from './style.module.scss';
+import Header from '~/components/Header';
+import githubLogo from '~/assets/GitHub-Mark-Light-64px.png';
+import resumePdf from '~/assets/Tomasz Zając - CV Public.pdf';
+import {BsFileEarmarkPersonFill} from 'react-icons/bs';
+import linkedinLogo from '~/assets/linkedin.png';
+import {HomePageIds} from './index.tsx';
 
 export function Cover() {
     const homeIntroCoverBriefRef = useRef<HTMLDivElement>(null);

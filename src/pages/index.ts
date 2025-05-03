@@ -1,5 +1,5 @@
-import {FunctionComponent} from "preact";
-import { lazy } from "preact-iso";
+import {FunctionComponent} from 'preact';
+import { lazy } from 'preact-iso';
 
 const pages: ReadonlyArray<{route: string, title: string, component: FunctionComponent}> = [
     {route: '/', title: 'Home', component: lazy(() => import('./HomePage'))},

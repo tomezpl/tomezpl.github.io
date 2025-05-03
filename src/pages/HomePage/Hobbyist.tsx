@@ -1,7 +1,7 @@
-import {SectionBase} from "./SectionBase.tsx";
-import {useMemo} from "preact/hooks";
-import {gameTechExperience} from "./constants.tsx";
-import {ButtonWithPopover} from "./ButtonWithPopover.tsx";
+import {SectionBase} from './SectionBase.tsx';
+import {useMemo} from 'preact/hooks';
+import {gameTechExperience} from './constants.tsx';
+import {ButtonWithPopover} from './ButtonWithPopover.tsx';
 import experienceStyles from './experience.module.scss';
 import styles from './hobbyist.module.scss';
 

@@ -7,23 +7,35 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build-dev": "tsc -b && vite build --sourcemap true --minify false",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/**",
+    "lint-fix": "eslint --fix src/**"
   },
   "dependencies": {
-    "preact": "^10.26.5",
     "inter-ui": "^4.1.0",
     "normalize.css": "^8.0.1",
+    "preact": "^10.26.5",
     "react-icons": "^5.5.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
+    "@eslint/css": "^0.7.0",
+    "@eslint/js": "^9.26.0",
     "@preact/preset-vite": "^2.9.3",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
     "browserslist": "^4.24.4",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
+    "globals": "^16.0.0",
     "lightningcss": "^1.29.1",
     "preact-iso": "^2.9.1",
     "sass": "^1.84.0",
     "typescript": "~5.6.2",
+    "typescript-eslint": "^8.31.1",
     "vite": "^6.3.3"
   }
 }

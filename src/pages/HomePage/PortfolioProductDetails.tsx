@@ -1,4 +1,4 @@
-import {FiExternalLink} from "react-icons/fi";
+import {FiExternalLink} from 'react-icons/fi';
 
 type PortfolioProductDetailsProps = {
     company: string;

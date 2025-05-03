@@ -1,0 +1,28 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {"project": "./tsconfig.app.json"},
+    "plugins": [
+        "@typescript-eslint",
+        "import",
+        "no-relative-import-paths"
+    ],
+    "rules": {
+        "no-relative-import-paths/no-relative-import-paths": [
+            "error",
+            { "allowSameFolder": true, "rootDir": "src", "prefix": "~" }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "import/extensions": ["error", {
+            "pattern": {"ts": "never", "tsx": "never", "webp": "always", "png": "always", "jpg": "always", "ttf": "always", "pdf": "always", "svg": "always"}
+        }]
+    },
+    "ignorePatterns": ["**/*.scss", "**/*.css", "**/*.png", "**/*.jpg", "**/*.webp", "**/*.svg", "**/*.ttf", "**/*.pdf"]
+}

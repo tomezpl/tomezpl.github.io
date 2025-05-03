@@ -1,4 +1,4 @@
-import {createContext, RefObject} from "preact";
+import {createContext, RefObject} from 'preact';
 
 interface ILayoutContext {
     header: RefObject<HTMLDivElement>;

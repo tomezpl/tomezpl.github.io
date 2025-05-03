@@ -1,4 +1,4 @@
-import {SectionBase} from "./SectionBase.tsx";
+import {SectionBase} from './SectionBase.tsx';
 
 export function TeamPlayer() {
     return <SectionBase title={'Team player'}>

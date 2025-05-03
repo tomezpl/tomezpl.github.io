@@ -1,5 +1,5 @@
-import {useContext} from "preact/hooks";
-import {LayoutContext} from "../context/layout-context.ts";
+import {useContext} from 'preact/hooks';
+import {LayoutContext} from '~/context/layout-context';
 
 export function useHeader() {
     const {header} = useContext(LayoutContext);

@@ -1,7 +1,7 @@
-import {SkillExperienceInfo} from "./types.ts";
-import styles from "./experience.module.scss";
-import {SkillPopover} from "./SkillPopover.tsx";
-import {Fragment} from "preact";
+import {SkillExperienceInfo} from './types.ts';
+import styles from './experience.module.scss';
+import {SkillPopover} from './SkillPopover.tsx';
+import {Fragment} from 'preact';
 
 type ButtonWithPopoverProps = {
     align?: 'left' | 'right';

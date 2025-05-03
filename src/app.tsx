@@ -1,10 +1,10 @@
 import styles from './app.module.css'
-import {ErrorBoundary, LocationProvider, Route, Router} from "preact-iso";
-import Sidenav from "./components/Sidenav";
+import {ErrorBoundary, LocationProvider, Route, Router} from 'preact-iso';
+import Sidenav from './components/Sidenav';
 import Header from './components/Header';
 import pages from './pages';
-import {useRef} from "preact/hooks";
-import {LayoutContext} from "./context/layout-context.ts";
+import {useRef} from 'preact/hooks';
+import {LayoutContext} from './context/layout-context.ts';
 import { PageTitleContext } from './context/page-title-context.ts';
 
 export function App() {

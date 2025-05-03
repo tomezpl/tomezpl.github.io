@@ -1,8 +1,8 @@
-import {FunctionComponent} from "preact";
-import styles from "./style.module.scss";
-import tzLogo from '../../assets/tz_logo.png';
-import {useContext} from "preact/hooks";
-import {PageTitleContext} from "../../context/page-title-context.ts";
+import {FunctionComponent} from 'preact';
+import styles from './style.module.scss';
+import tzLogo from '~/assets/tz_logo.png';
+import {useContext} from 'preact/hooks';
+import {PageTitleContext} from '~/context/page-title-context';
 
 type HeaderProps = {
     className?: string;

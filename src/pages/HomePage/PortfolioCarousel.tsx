@@ -1,8 +1,8 @@
-import {PortfolioEntry} from "./types.ts";
-import {useCallback, useMemo, useState} from "preact/hooks";
-import {FunctionComponent, ReactNode} from "react";
+import {PortfolioEntry} from './types.ts';
+import {useCallback, useMemo, useState} from 'preact/hooks';
+import {FunctionComponent, ReactNode} from 'react';
 import styles from './portfolio-carousel.module.scss';
-import {IoIosArrowDropleftCircle, IoIosArrowDroprightCircle} from "react-icons/io";
+import {IoIosArrowDropleftCircle, IoIosArrowDroprightCircle} from 'react-icons/io';
 
 type PortfolioCarouselProps = {
     entries: ReadonlyArray<PortfolioEntry>;

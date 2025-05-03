@@ -1,10 +1,10 @@
-import {SectionBase} from "./SectionBase.tsx";
+import {SectionBase} from './SectionBase.tsx';
 
 import styles from './experience.module.scss';
-import {useMemo} from "preact/hooks";
-import {webTechExperience, portfolioEntries} from "./constants.tsx";
-import {ButtonWithPopover} from "./ButtonWithPopover.tsx";
-import {PortfolioCarousel} from "./PortfolioCarousel.tsx";
+import {useMemo} from 'preact/hooks';
+import {webTechExperience, portfolioEntries} from './constants.tsx';
+import {ButtonWithPopover} from './ButtonWithPopover.tsx';
+import {PortfolioCarousel} from './PortfolioCarousel.tsx';
 
 export function Experience() {
     // Skill-specific logos and descriptions of my experience with them.
