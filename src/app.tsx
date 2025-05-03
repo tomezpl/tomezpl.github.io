@@ -13,7 +13,7 @@ export function App() {
     return (
     <div id={'app'} className={styles.app}>
         <LocationProvider>
-            <PageTitleContext.Provider value={pages.find(({route}) => {debugger; return route === window.location.pathname})?.title}>
+            <PageTitleContext.Provider value={pages.find(({route}) => typeof window !== 'undefined' && route === window.location.pathname)?.title}>
                 <Header ref={headerRef}/>
                 <Sidenav />
                 <LayoutContext.Provider value={{header: headerRef}}>
