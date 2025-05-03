@@ -38,8 +38,10 @@ $marginTop: 6;
       }
 
       &:not(:target) {
-        //display: none;
-        display: grid;
+        display: none;
+        @media screen and (min-width: breakpoints.$lg) {
+          display: grid;
+        }
         opacity: 0;
         &, & * {
           pointer-events: none;
@@ -58,8 +60,11 @@ $marginTop: 6;
 
   &:has([data-iscurrentslide="true"]) {
     .slideRoot {
-      //display: none;
-      display: grid;
+      display: none;
+      @media screen and (min-width: breakpoints.$lg) {
+        display: grid;
+      }
+
       opacity: 0;
 
       &, & * {
@@ -79,7 +84,7 @@ $marginTop: 6;
 }
 
 .slideRoot {
-  grid-template: "text image-container" auto / 30% 70%;
+  grid-template: "text image-container" auto / var(--text-width, 30%) calc(100% - var(--text-width, 30%));
   gap: 0 shared.padding(5);
 
   @media (max-width: breakpoints.$lg) {
@@ -128,6 +133,7 @@ $marginTop: 6;
     }
     padding-top: shared.padding(1);
     padding-right: 9em;
+    flex-wrap: wrap;
 
     > div, > img {
       flex-basis: 2em;
@@ -167,6 +173,8 @@ $marginTop: 6;
   }
 
   pointer-events: none;
+
+  max-height: 37.5em;
 }
 
 .image {
@@ -176,6 +184,8 @@ $marginTop: 6;
   pointer-events: none;
   height: 100%;
   object-fit: contain;
+  object-position: center;
+  width: 100%;
 }
 
 .nextBtn, .prevBtn {

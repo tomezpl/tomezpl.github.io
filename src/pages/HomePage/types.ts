@@ -13,9 +13,10 @@ export type PortfolioEntry = {
 } & ({
     brief: string | FunctionComponent;
     image: ReadonlyArray<string> | string;
+    textWidth?: string;
 } | {
     /**
      * An array used to store separate text for each image
      */
-    brief: ReadonlyArray<{image: string; text: string | FunctionComponent}>;
+    brief: ReadonlyArray<{image: string; text: string | FunctionComponent, textWidth?: string}>;
 });
