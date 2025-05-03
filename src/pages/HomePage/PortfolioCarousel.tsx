@@ -57,10 +57,10 @@ export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
                 {typeof text === 'string' ? <p>{text}</p> : text}
                 {(technologies?.length ?? 0) > 0 ? <><hr /><div className={styles.technologies}>{technologies}</div></> : null}
             </div>
-            <div className={styles.imageContainer} style={{'--image-src': `url(${image})`}}>
-                <img loading={i === 0 ? 'eager' : 'lazy'} className={styles.image} src={image} />
-                <a onClick={onPrevSlide} className={styles.prevBtn} href={getHref((i === 0 ? total : i) - 1)}><IoIosArrowDropleftCircle size={'100%'} /></a>
-                <a onClick={onNextSlide} className={styles.nextBtn} href={getHref((i + 1) % total)}><IoIosArrowDroprightCircle size={'100%'} /></a>
+            <div draggable={false} className={styles.imageContainer} style={{'--image-src': `url(${image})`}}>
+                <img draggable={false} loading={i === 0 ? 'eager' : 'lazy'} className={styles.image} src={image} />
+                <a draggable={false} onClick={onPrevSlide} className={styles.prevBtn} href={getHref((i === 0 ? total : i) - 1)}><IoIosArrowDropleftCircle size={'100%'} /></a>
+                <a draggable={false} onClick={onNextSlide} className={styles.nextBtn} href={getHref((i + 1) % total)}><IoIosArrowDroprightCircle size={'100%'} /></a>
             </div>
         </div>)}
     </div>

@@ -89,6 +89,10 @@ $marginTop: 6;
 
   @media (max-width: breakpoints.$lg) {
     grid-template: "image-container" auto "text" auto / 100%;
+    --cycle-button-width: 3.5rem;
+    .imageContainer {
+      max-height: max(15em, 50vh);
+    }
   }
 }
 
@@ -148,6 +152,10 @@ $marginTop: 6;
 }
 
 .imageContainer {
+  &, * {
+    user-select: none;
+  }
+
   display: grid;
   grid-area: image-container;
 
@@ -156,7 +164,11 @@ $marginTop: 6;
   grid-template: "prev image next" auto / var(--cycle-button-width) auto var(--cycle-button-width);
 
   @media (max-width: breakpoints.$md) {
-    --cycle-button-width: 2rem;
+    --cycle-button-width: 3rem;
+  }
+
+  @media (max-width: breakpoints.$sm) {
+    --cycle-button-width: 1.75rem;
   }
 
   background-image: var(--image-src), var(--image-src);
