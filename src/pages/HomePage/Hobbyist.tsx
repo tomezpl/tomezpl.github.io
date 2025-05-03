@@ -4,7 +4,7 @@ import {gameTechExperience, hobbyProjectEntries} from './constants.tsx';
 import {ButtonWithPopover} from './ButtonWithPopover.tsx';
 import experienceStyles from './experience.module.scss';
 import styles from './hobbyist.module.scss';
-import {PortfolioCarousel} from "~/pages/HomePage/PortfolioCarousel.tsx";
+import {PortfolioCarousel} from '~/pages/HomePage/PortfolioCarousel';
 
 export function Hobbyist() {
     const skillExperience = useMemo(() => Object.entries(gameTechExperience).map(([key, experienceInfo]) => <ButtonWithPopover align={'left'} key={key} {...experienceInfo} />), [gameTechExperience]);
