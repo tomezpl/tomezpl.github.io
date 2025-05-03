@@ -347,8 +347,8 @@ export const hobbyProjectEntries: ReadonlyArray<PortfolioEntry> = [
                     <p>
                         For one, working on the project I had the opportunity to delve deeper into the game design side of things, specifically balancing in a competitive multiplayer context.
                         It's not something I get to do a lot, and it's not something I see myself working in, but I feel like it provided me with a perspective on how to gauge player satisfaction,
-                        how feedback affects future iterations of a product, timescales, the QA process, and so on. In fact, in some areas I began to either deviate from the original concept
-                        and added or adjusted features/rules as I saw fit based on playtesting.
+                        how feedback affects future iterations of a product, timescales, the QA process, and so on. In fact, in some areas I began to slightly deviate from the original concept
+                        and added or adjusted features/rules as necessary based on playtesting feedback.
                     </p>
                     <p>
                         From the technical side of things, most of the code boils down to calling functions from the game's executable in my C# code in order to update the player, world or HUD state as needed,
