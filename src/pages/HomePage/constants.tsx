@@ -20,7 +20,7 @@ import tsLogo from '~/assets/ts-logo-128.svg';
 import reactLogo from '~/assets/React.svg';
 import muiLogo from '~/assets/mui.png';
 import esbuildLogo from '~/assets/esbuild.svg';
-import bpTournament1 from '~/assets/bp-tournament-enter.png';
+// import bpTournament1 from '~/assets/bp-tournament-enter.png';
 import css3Logo from '~/assets/CSS3_logo_and_wordmark.svg';
 import bpgCommonUi from '~/assets/portfolio/professional/common ui.jpg';
 import bpgPanel from '~/assets/portfolio/professional/game-panel.webp';
@@ -237,7 +237,7 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
             <img {...alt('Material UI')} src={muiLogo} key={'mui'} />, <img {...alt('ESBuild')} src={esbuildLogo} key={'esbuild'} />
         ]
     },
-    {
+    /*{
         title: 'Tournament Frontend',
         subtitle: <PortfolioProductDetails company={'Blueprint Gaming'} dates={['2024']} />,
         technologies: [
@@ -260,5 +260,5 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
         </>,
         image: bpTournament1,
         textWidth: '50%'
-    }
+    }*/
 ]
