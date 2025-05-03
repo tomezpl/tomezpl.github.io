@@ -84,6 +84,7 @@ div.navbar {
     font-family: "Chakra Petch";
     color: shared.$color-light;
     text-shadow: 2px 2px 2px shared.$color-dark;
+    justify-self: end;
 
     @media screen and (max-width: breakpoints.$sm) {
         margin-right: shared.padding(3);
