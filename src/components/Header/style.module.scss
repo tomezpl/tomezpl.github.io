@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "~/shared";
+@use "~/breakpoints";
 
 div.navbar {
     font-family: 'Rajdhani', sans-serif;
@@ -75,4 +76,26 @@ div.navbar {
 .hide {
     width: 0;
     transition: width 0.15s ease;
+}
+
+.pageTitle {
+    grid-area: page-title;
+    font-weight: 200;
+    font-family: "Chakra Petch";
+    color: shared.$color-light;
+    text-shadow: 2px 2px 2px shared.$color-dark;
+
+    @media screen and (max-width: breakpoints.$sm) {
+        margin-right: shared.padding(3);
+    }
+
+    @media screen and (min-width: breakpoints.$sm) {
+        margin-right: shared.padding(5);
+    }
+
+    @media screen and (min-width: breakpoints.$lg) {
+        margin-right: shared.padding(9);
+    }
+
+
 }
