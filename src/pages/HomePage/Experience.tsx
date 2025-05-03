@@ -30,7 +30,7 @@ export function Experience() {
                 {skillExperienceInfo}
             </div>
         </div>
-        <div className={styles.portfolioRoot}>
+        <div className={'portfolio-root'}>
             <h1>Portfolio</h1>
             <PortfolioCarousel idBase={'professionalPortfolio'} entries={portfolioEntries} />
         </div>

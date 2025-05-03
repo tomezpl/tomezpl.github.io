@@ -24,6 +24,15 @@ import esbuildLogo from '~/assets/esbuild.svg';
 import css3Logo from '~/assets/CSS3_logo_and_wordmark.svg';
 import bpgCommonUi from '~/assets/portfolio/professional/common ui.jpg';
 import bpgPanel from '~/assets/portfolio/professional/game-panel.webp';
+import roombaRumble from '~/assets/portfolio/hobby/roombarumble1.gif';
+import blenderLogo from '~/assets/blender.svg';
+import carPhysics from '~/assets/portfolio/hobby/driving-physics.webp';
+import godotLogo from '~/assets/godot.svg';
+import sthShort from '~/assets/portfolio/hobby/sth-trailer-30.webp';
+import csharpLogo from '~/assets/logo_Csharp.svg';
+import vkLogo from '~/assets/vulkan.svg';
+import cppLogo from '~/assets/cpplogo.svg';
+import lepusDemoApp from '~/assets/portfolio/hobby/lepus-demo-app.webp';
 import {BsListCheck, BsRobot} from 'react-icons/bs';
 import {PortfolioProductDetails} from './PortfolioProductDetails.tsx';
 
@@ -261,4 +270,122 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
         image: bpTournament1,
         textWidth: '50%'
     }*/
-]
+];
+
+export const hobbyProjectEntries: ReadonlyArray<PortfolioEntry> = [
+    {
+        title: 'Roomba Rumble',
+        subtitle: <PortfolioProductDetails link={'https://github.com/tomezpl/7DFPS-2020'} company={'7DFPS Game Jam'} dates={['2020']} />,
+        brief: () => <>
+            <p>
+                For the 7DFPS game jam in 2020, I developed a multiplayer shooter game where players control weaponised cleaning robots.
+            </p>
+            <p>
+                For playability's sake, a concession had to be made and technically the camera placement is more similar to a third person perspective.
+            </p>
+            <p>
+                I've decided to continue with the game's development after the game jam had ended. As a result, I believe I have learned quite a lot about all facets of game development,
+                from design, programming, time management, and so on. While the game was clearly far from a technical accomplishment, it served as a good introduction to learning
+                gameplay programming, networking (using Photon initially, and porting to Unity MLAPI later on), shaders (using Shader Graph), as well as generally the Unity engine itself.
+            </p>
+        </>,
+        technologies: [<img src={unityLogo} {...alt('Unity')} />, <img src={blenderLogo} {...alt('Blender')} />],
+        image: roombaRumble
+    },
+    {
+        title: 'Driving physics',
+        subtitle: <PortfolioProductDetails link={'https://github.com/tomezpl/VehicleDemo'} company={'Self learning'} dates={['2022']} />,
+        brief: () => <>
+            <p>
+                I've always found vehicle physics in video games to be an interesting problem,
+                which prompted me to make small experiments in my free time trying to implement my own solution.
+            </p>
+            <p>
+                Having studied the well-known Marco Monster paper on car physics, I began toying with an implementation using the Godot engine.
+                Within a few weeks I had a basic demo with a simple weight transfer that responds to changes in acceleration, raycast-driven wheel suspension,
+                cornering that adapts to velocity and tyre friction.
+            </p>
+            <p>
+                It is by no means a complete solution, but it's been eye-opening in just how complex this topic - which many outsiders consider trivial - actually is.
+                I'm planning on revisiting it at some point again; I believe the main issue I've faced is an over reliance on built-in rigidbody physics and collision detection;
+                what I've learned is that vehicle physics, especially for wheeled vehicles such as cars, mandate that all interactions with the physics world are performed using bespoke mechanisms and approximations
+                instead of the main rigidbody solver and triangle geometry (e.g. how raycasts and distance functions offer a smoother collision response for wheels than using the general physics hit event).
+            </p>
+        </>,
+        image: carPhysics,
+        textWidth: '45%',
+        technologies: [<img src={godotLogo} {...alt('Godot Engine')} />, <img src={blenderLogo} {...alt('Blender')} />],
+    },
+    {
+        title: 'Survive the Hunt',
+        subtitle: <PortfolioProductDetails link={'https://github.com/tomezpl/sth-gamemode'} company={'Video game modding'} dates={['2021', 'present']} />,
+        brief: [
+            {
+                text: () => <>
+                    <p>
+                        Survive the Hunt is a custom gamemode I've built in FiveM, the community-made multiplayer client for Grand Theft Auto V.
+                    </p>
+                    <p>
+                        The idea came from watching the YouTube channel "FailRace", who popularised this mode while playing GTA Online on console.
+                        However, I felt that this would be difficult for ordinary gamers to enjoy without a coordinated group, as there was no guarantee players would follow the rules (whereas the FailRace group were tight-knit and therefore could agree on fair play for content creation purposes).
+                        Hence, the goal was to implement the ruleset as a FiveM script, adding the constraints and restrictions needed to guarantee a fair experience for all players.
+                    </p>
+                    <p>
+                        At its core, the script implements the basic ruleset: a "hunted" player is picked at random. They're hidden from the hunters' radar and given a one minute headstart to establish an initial position and strategy.
+                        During that prep phase, "hunters" are prevented from leaving the starting area. After that, the hunted player needs to survive 24 minutes (12 in-game hours) in the city while their approximate location is broadcast to the hunters every minute.
+                    </p>
+                </>,
+                image: sthShort,
+                textWidth: '45%'
+            },
+            {
+                text: () => <>
+                    <p>
+                        I don't necessarily consider this project critical to my career in any way, and it was born more out of my own interest in trying the gamemode with my friends,
+                        but despite that I still found I gained some knowledge and skill from developing it over the years.
+                    </p>
+                    <p>
+                        For one, working on the project I had the opportunity to delve deeper into the game design side of things, specifically balancing in a competitive multiplayer context.
+                        It's not something I get to do a lot, and it's not something I see myself working in, but I feel like it provided me with a perspective on how to gauge player satisfaction,
+                        how feedback affects future iterations of a product, timescales, the QA process, and so on. In fact, in some areas I began to either deviate from the original concept
+                        and added or adjusted features/rules as I saw fit based on playtesting.
+                    </p>
+                    <p>
+                        From the technical side of things, most of the code boils down to calling functions from the game's executable in my C# code in order to update the player, world or HUD state as needed,
+                        so it was more analogous to tasks performed by mission scripters (with the added caveat of having to interface with the game from external code).
+                    </p>
+                </>,
+                image: sthShort,
+                textWidth: '45%'
+            }
+        ],
+        technologies: [<img src={csharpLogo} {...alt('C#')} />]
+    },
+    {
+        title: 'LepusEngine',
+        subtitle: <PortfolioProductDetails link={'https://github.com/tomezpl/LepusEngine'} company={'Self learning'} dates={['2023', 'present']} />,
+        technologies: [<img src={cppLogo} {...alt('C/C++')} />, <img src={vkLogo} {...alt('Vulkan')} />, <img src={openGlLogo} {...alt('OpenGL & GLSL')} />],
+        brief: () => <>
+            <p>
+                This is a toy 3D engine I've been writing in my spare time for the purposes of learning C++ and graphics programming.
+            </p>
+            <p>
+                I've initially started tinkering with OpenGL around 2017 and got a basic OpenGL renderer working, but unfortunately it suffered from tech debt due to my lacking C++ knowledge.
+                In 2023 I revisited the project and decided to rewrite it from scratch.
+            </p>
+            <p>
+                Currently, the engine can render a demo app with basic animated primitives, and it can use either of the two backends (OpenGL or Vulkan) with only minimal dependencies.
+                I've been using this project as an opportunity to brush up on my understanding of low-level programming and architectures.
+            </p>
+            <p>
+                I try to limit the project's reliance on the standard library and math helpers to a minimum, implementing utility code on my own until I feel that it's becoming unfeasible.
+            </p>
+            <p>
+                By far the biggest challenge in the project was getting to grips with resource management, synchronisation and overall API design in Vulkan, but graphics programming has always been an area
+                I wanted to explore, so learning about those topics bit by bit has been fascinating.
+            </p>
+        </>,
+        textWidth: '50%',
+        image: lepusDemoApp
+    }
+];
