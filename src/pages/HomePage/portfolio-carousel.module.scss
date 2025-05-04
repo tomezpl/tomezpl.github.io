@@ -139,14 +139,29 @@ $marginTop: 6;
     padding-right: 9em;
     flex-wrap: wrap;
 
-    > div, > img {
+    > div, > div > img {
       flex-basis: 2em;
       flex-grow: 0;
       height: 2em;
+      position: relative;
+
+      pointer-events: all;
+
+      &:hover {
+        + span.techDummy {
+          transform: translate(-50%, -10%);
+          opacity: 1;
+        }
+      }
     }
     > img {
       object-fit: contain;
       width: auto;
+      ::before {
+        content: "" attr(alt) "";
+        justify-content: center;
+        align-content: center;
+      }
     }
   }
 }
@@ -244,4 +259,21 @@ $marginTop: 6;
   // Disable border rounding on the inner edge
   border-bottom-left-radius: 0!important;
   border-top-left-radius: 0!important;
+}
+
+span.techDummy {
+  position: absolute;
+  display: block;
+
+  justify-self: center;
+  width: max-content;
+  left: 50%;
+  transform: translate(-50%, -100%) scale(0);
+  transition: transform 0.2s ease, opacity 0.1s ease;
+  opacity: 0;
+  padding: shared.padding(1);
+  border-radius: 4px;
+  border: 1px solid shared.$color-light;
+  background-color: shared.$color-dark;
+  font-size: 0.8em;
 }

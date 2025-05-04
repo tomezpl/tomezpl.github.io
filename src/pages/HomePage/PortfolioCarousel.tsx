@@ -3,6 +3,7 @@ import {useCallback, useMemo, useState} from 'preact/hooks';
 import {FunctionComponent, ReactNode} from 'react';
 import styles from './portfolio-carousel.module.scss';
 import {IoIosArrowDropleftCircle, IoIosArrowDroprightCircle} from 'react-icons/io';
+import type {VNode} from "preact";
 
 type PortfolioCarouselProps = {
     entries: ReadonlyArray<PortfolioEntry>;
@@ -55,7 +56,7 @@ export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
                 <h1>{title}</h1>
                 <h2>{subtitle ?? null}</h2>
                 {typeof text === 'string' ? <p>{text}</p> : text}
-                {(technologies?.length ?? 0) > 0 ? <><hr /><div className={styles.technologies}>{technologies}</div></> : null}
+                {(technologies?.length ?? 0) > 0 ? <><hr /><div className={styles.technologies}>{technologies?.map((tech, j) => <><div key={`dummydiv tech ${j} ${title} ${i}`}>{tech}<span className={styles.techDummy} >{((tech as VNode).props as {alt?: string}).alt}</span></div></>)}</div></> : null}
             </div>
             <div draggable={false} className={styles.imageContainer} style={{'--image-src': `url(${image})`}}>
                 <img draggable={false} loading={i === 0 ? 'eager' : 'lazy'} className={styles.image} src={image} />

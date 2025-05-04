@@ -47,10 +47,10 @@ const webTechExperience = {
         brief: '4 years using Vue.js in a professional capacity. Familiar with Vue 2.x, 3.x, JSX syntax, Vue CLI and TypeScript API.',
         icon: vueLogo
     },
-    bootstrap: {
-        title: 'Bootstrap',
-        brief: '4 years using Bootstrap in a professional capacity. Solid working knowledge of the layout system and core components, as well as SCSS customization and extending functionality with custom code.',
-        icon: bsLogo
+    react: {
+        title: 'React',
+        brief: '2 years using React in a professional capacity. Solid working knowledge of the concepts (virtual DOM, hooks, portals, passing props), experience with debugging and optimisation.',
+        icon: reactLogo
     },
     'unit-testing': {
         title: 'Testing',
