@@ -1,8 +1,16 @@
-import {useContext} from 'preact/hooks';
+import {useContext, useEffect, useState} from 'preact/hooks';
 import {LayoutContext} from '~/context/layout-context';
 
+type HeaderRef = {current: {base?: HTMLDivElement} | null};
+
 export function useHeader() {
-    const {header} = useContext(LayoutContext);
+    const header = useContext(LayoutContext).header as HeaderRef;
+    const [headerDiv, setHeaderDiv] = useState<HTMLDivElement | null>(null);
+    useEffect(() => {
+        if(header.current?.base) {
+            setHeaderDiv(header.current.base);
+        }
+    }, [header.current?.base])
     // Some Preact oddity, if we store the ref in a context then instead of just having the HTMLDivElement it wraps it in another object
-    return header.current ? (header.current as unknown as {base: HTMLDivElement}).base : null;
+    return headerDiv;
 }

@@ -32,6 +32,10 @@ const Sidenav: FunctionComponent = () => {
                 <a href={route} className={[styles.button, route === path ? 'active' : ''].join(' ')}><span>{title}</span></a>
             </li>)}
         </ul>
+        <div className={styles.footerRoot}>
+            <p>Version {VERSION}</p>
+            <p>Built with <a href='#'>Preact</a>, <a href={'#'}>TypeScript</a>, <a href={'#'}>Sass</a>, <a href={'#'}>Zustand</a> and <a href={'#'}>Vite</a>.</p>
+        </div>
     </div>
 };
 

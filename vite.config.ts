@@ -3,6 +3,7 @@ import preact from '@preact/preset-vite'
 import {browserslistToTargets} from "lightningcss";
 import browserslist from "browserslist";
 import {resolve} from 'node:path';
+import pkg from './package.json';
 
 // @ts-ignore
 console.log(process.env.NODE_ENV)
@@ -35,5 +36,8 @@ export default defineConfig({
     // This is needed for accessing the site with JS disabled, otherwise the CSS doesn't get loaded
     cssCodeSplit: false
     // cssMinify: 'lightningcss'
+  },
+  define: {
+    VERSION: JSON.stringify(pkg.version),
   }
 })

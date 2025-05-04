@@ -10,7 +10,7 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
 }
 
 .dummyHeader {
-  position: relative;
+  position: relative!important;
   &, & * {
     visibility: hidden;
     pointer-events: none;
