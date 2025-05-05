@@ -9,8 +9,9 @@ div.navbar {
 .root {
     position: fixed;
     min-height: 4.5rem;
-    --border-alpha: 1;
+    --border-alpha: 0;
     border-bottom: 2px solid rgba(shared.$color-lightpink, calc(0.8 * var(--border-alpha, 1)));
+    transition: border-bottom-color 0.05s ease;
     grid-area: header;
 
     display: grid;

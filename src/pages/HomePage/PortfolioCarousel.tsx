@@ -3,7 +3,7 @@ import {useCallback, useMemo, useState} from 'preact/hooks';
 import {FunctionComponent, ReactNode} from 'react';
 import styles from './portfolio-carousel.module.scss';
 import {IoIosArrowDropleftCircle, IoIosArrowDroprightCircle} from 'react-icons/io';
-import type {VNode} from "preact";
+import type {VNode} from 'preact';
 
 type PortfolioCarouselProps = {
     entries: ReadonlyArray<PortfolioEntry>;

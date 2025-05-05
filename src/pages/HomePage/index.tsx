@@ -7,6 +7,7 @@ import {useMemo} from 'preact/hooks';
 import {Experience} from './Experience.tsx';
 import {Hobbyist} from './Hobbyist.tsx';
 import {TeamPlayer} from './TeamPlayer.tsx';
+import {animOrder} from '~/utils/anim-order';
 
 export const HomePageIds = {
     CoverBrief: 'homeIntroCoverBrief'
@@ -20,8 +21,8 @@ const HomePage: FunctionComponent = () => {
     ], []);
 
     return <MainLayout skipDummyHeader>
-        <Cover />
-        <div className={styles.homePageRoot}>
+        <Cover {...animOrder()} className={styles.introFade} />
+        <div {...animOrder(1)} className={[styles.homePageRoot, styles.introFade].join(' ')}>
         {
             sections.map(([sectionName, SectionComponent]) => <div className={styles.mainPageContent} key={sectionName}><SectionComponent /></div> )
         }

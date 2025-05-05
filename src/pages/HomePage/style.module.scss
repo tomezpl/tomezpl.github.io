@@ -234,3 +234,30 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
 
 .coverRoot {
 }
+
+@keyframes animFade {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.introFade {
+  // Initial state
+  opacity: 0;
+  filter: blur(10px);
+
+  animation-name: animFade;
+  --anim-duration: 0.6s;
+  animation-duration: var(--anim-duration);
+  animation-delay: calc(min(1, var(--anim-order, 0)) * (var(--anim-duration) * 0.1 + (var(--anim-duration) * 0.2 * var(--anim-order, 0))));
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-play-state: running;
+}

@@ -3,7 +3,7 @@ import pages from '~/pages';
 import styles from './style.module.scss';
 import tzLogo from '~/assets/tz_logo.png';
 import {useMemo} from 'preact/hooks';
-import {useRoute} from "preact-iso";
+import {useRoute} from 'preact-iso';
 
 type HeaderProps = {
     className?: string;

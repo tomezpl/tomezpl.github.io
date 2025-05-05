@@ -25,8 +25,39 @@
 
 }
 
+@keyframes containerFade {
+  0% {
+    opacity: 0;
+    transform: translate(0, -3rem);
+  }
+
+  40% {
+    opacity: 0.4
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
 .container {
   display: block;
+
+  opacity: 0;
+
+  animation-name: containerFade;
+  --anim-duration: 0.35s;
+  animation-duration: var(--anim-duration);
+  animation-delay: calc(0.12s + var(--anim-duration) * var(--anim-order, 0));
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 
   font-family: "Chakra Petch";
 
