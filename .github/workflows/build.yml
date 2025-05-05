@@ -29,7 +29,7 @@ jobs:
           name: 'build'
   prod-build:
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
+    if: github.ref_name == 'gh-pages'
     steps:
       - uses: actions/checkout@v4
         name: Checkout source
