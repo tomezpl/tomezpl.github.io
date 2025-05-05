@@ -25,7 +25,8 @@ $color-lightpink: color.mix(#fff, $color-lightrosey, 40%);
 $zindex-carousel: 1000;
 $zindex-popover: 1001;
 $zindex-header: 1002;
-$zindex-sidenav: 1003;
+$zindex-carouselbtn: 1003;
+$zindex-sidenav: 1004;
 
 body {
     font-family: "Inter", "system-ui";
