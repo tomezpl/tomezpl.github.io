@@ -61,7 +61,7 @@
     // Allow me to explain this gash: because of the CSS transitions for the sidenav,
     // the sidenav will animate shrinking when you load the page. So we use a hard step anim
     // to hide the sidenav's contents for the first 0.5s
-    @media (scripting: enabled) {
+    @media not (scripting: initial-only), not (scripting: none) {
         animation-name: sidenav-prevent-anim-on-load;
         animation-duration: 0.5s;
         animation-timing-function: step-end;
@@ -82,9 +82,11 @@
 
 .root > *:not(.menuToggle):not(.menuToggle *) {
     transition: 0.5s transform ease;
-    @media (scripting: enabled) {
-        transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    @media (scripting: initial-only), (scripting: none) {
+        transform: translate(0, 0);
     }
+
 }
 
 .root {
@@ -99,15 +101,17 @@
     z-index: shared.$zindex-sidenav;
 
     grid-area: sidenav;
-    position: sticky;
+    position: fixed;
 
     // Offset the entire sidenav contents from the top a bit so the toggle ends up more center-aligned with the logo
     // (can't really do it properly as the logo is in the Header container whilst the toggle is part of the Sidenav)
     padding-top: 0.9rem;
 
-    @media (scripting: enabled) {
-        background-size: 0%;
-        position: fixed;
+    background-size: 0%;
+
+    @media (scripting: none), (scripting: initial-only) {
+        background-size: 100%;
+        position: sticky;
     }
 
     .footerRoot {
@@ -142,8 +146,9 @@
 
     transition: background-size 0.5s ease;
 
-    @media (scripting: enabled) {
-        pointer-events: none;
+    pointer-events: none;
+    @media (scripting: none), (scripting: initial-only) {
+        pointer-events: auto;
     }
 
     left: 0;
