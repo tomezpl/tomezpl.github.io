@@ -49,6 +49,9 @@ jobs:
         with:
           path: dist/
   deploy:
+    permissions:
+      id-token: write
+      pages: write
     needs: prod-build
     runs-on: ubuntu-latest
     environment:
