@@ -31,6 +31,7 @@ $marginTop: 6;
         &:first-of-type {
           display: grid;
           opacity: 1;
+          visibility: visible;
           & * {
             pointer-events: auto;
           }
@@ -39,6 +40,7 @@ $marginTop: 6;
 
       &:not(:target) {
         display: none;
+        visibility: hidden;
         @media screen and (min-width: breakpoints.$lg) {
           display: grid;
         }
@@ -50,6 +52,7 @@ $marginTop: 6;
 
       &:target {
         display: grid;
+        visibility: visible;
         opacity: 1;
         & * {
           pointer-events: auto;
@@ -61,6 +64,7 @@ $marginTop: 6;
   &:has([data-iscurrentslide="true"]) {
     .slideRoot {
       display: none;
+      visibility: hidden;
       @media screen and (min-width: breakpoints.$lg) {
         display: grid;
       }
@@ -74,6 +78,7 @@ $marginTop: 6;
 
     .slideRoot[data-iscurrentslide="true"] {
       display: grid;
+      visibility: visible;
       opacity: 1;
 
       & * {
@@ -88,7 +93,7 @@ $marginTop: 6;
   gap: 0 shared.padding(5);
 
   @media (max-width: breakpoints.$lg) {
-    grid-template: "image-container" auto "text" auto / 100%;
+    grid-template: "image-container" minmax(min(37.5em, 45vmax), auto) "text" auto / 100%;
     --cycle-button-width: 3.5rem;
     .imageContainer {
       max-height: max(15em, 50vh);
@@ -171,6 +176,8 @@ $marginTop: 6;
     user-select: none;
   }
 
+  position: relative;
+
   display: grid;
   grid-area: image-container;
 
@@ -186,10 +193,10 @@ $marginTop: 6;
     --cycle-button-width: 1.75rem;
   }
 
-  background-image: var(--image-src), var(--image-src);
-  background-size: contain, cover;
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center;
+  //background-image: var(--image-src), var(--image-src);
+  //background-size: contain, cover;
+  //background-repeat: no-repeat, no-repeat;
+  //background-position: center, center;
 
   box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
 
@@ -204,6 +211,18 @@ $marginTop: 6;
   max-height: 37.5em;
 }
 
+.imageBg {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  clip-path: border-box;
+  filter: blur(10px);
+}
+
 .image {
   grid-area: image;
   max-width: 100%;
@@ -213,6 +232,7 @@ $marginTop: 6;
   object-fit: contain;
   object-position: center;
   width: 100%;
+  position: absolute;
 }
 
 .nextBtn, .prevBtn {
