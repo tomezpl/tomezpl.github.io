@@ -1,0 +1,117 @@
+@use 'sass:color';
+@use '~/shared';
+@use '~/breakpoints';
+
+.aboutRoot {
+  display: grid;
+  grid-template: "essential contact" 4fr "education-and-work education-and-work" 7fr / 3fr 2fr;
+  @media screen and (max-width: breakpoints.$lg) {
+    grid-template: "essential contact" 4fr "education-and-work education-and-work" 7fr / 2fr 2fr;
+  }
+
+  flex-basis: 100%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  width: 100vw;
+  padding: shared.padding(18) shared.padding(15);
+  gap: shared.padding(5) shared.padding(9);
+  box-sizing: border-box;
+
+  @media screen and (max-width: breakpoints.$md) {
+    grid-template: "essential" auto "contact" auto "education-and-work" auto / 100%;
+    padding: shared.padding(5) shared.padding(3);
+    gap: shared.padding(3) shared.padding(7);
+  }
+
+}
+
+.container {
+  display: block;
+
+  font-family: "Chakra Petch";
+
+  padding: shared.padding(3) shared.padding(4);
+
+  --gradient-angle: 50deg;
+  background: linear-gradient(var(--gradient-angle), #{shared.$color-beigepurple} -60%, #{shared.$color-violet} 80%);
+
+  &:nth-child(even) {
+    --gradient-angle: calc(50deg + 180deg);
+  }
+
+  color: shared.$color-light;
+
+  a {
+    &, &:visited, &:active {
+      color: shared.$color-light;
+      text-shadow: 2px 2px 1px #000;
+    }
+  }
+
+  > * {
+    text-shadow: 2px 2px 3px #000;
+  }
+
+  > h1 {
+    margin-top: 0;
+    font-weight: 1000;
+    font-size: 2em;
+    //border-bottom: 1px solid #{shared.$color-beigepurple};
+  }
+
+  > ul {
+    --icon-size: 1.15em;
+
+    display: grid;
+    grid-auto-rows: auto;
+    gap: shared.padding(1);
+    position: relative;
+    padding-left: shared.padding(5);
+
+    > li {
+      list-style-type: none;
+      padding-left: var(--icon-size);
+      position: relative;
+
+      //@media screen and (max-width: breakpoints.$md) {
+        padding-top: shared.padding(2);
+        padding-bottom: shared.padding(1);
+        border-bottom: 1px solid shared.$color-beigepurple;
+      //}
+
+      //display: flex;
+      //flex-direction: row;
+      //flex-wrap: wrap;
+
+      gap: 0 0.25em;
+
+      img:first-of-type, svg:first-of-type {
+        position: absolute;
+        left: calc(var(--icon-size) * -0.5);
+        flex-basis: var(--icon-size);
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-self: center;
+        align-self: center;
+        margin-right: shared.padding(2);
+      }
+    }
+  }
+}
+
+.essentials {
+  grid-area: essential;
+}
+
+.flagIcon {
+  display: inline-block;
+  height: var(--icon-size);
+  max-height: var(--icon-size);
+  width: var(--icon-size);
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.contact {
+  grid-area: contact;
+}

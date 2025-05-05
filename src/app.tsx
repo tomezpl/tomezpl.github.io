@@ -15,7 +15,7 @@ export function App() {
                 <LayoutContext.Provider value={{header: headerRef}}>
                     <ErrorBoundary>
                         <Router>
-                            {pages.map(({route, component: PageComponent}) => <PageComponent {...{route}} key={`route ${route}`} />)}
+                            {pages.map(({route, component: PageComponent}) => <PageComponent {...{route, path: route}} key={`route ${route}`} />)}
                             <Route default component={() => <div/>} />
                         </Router>
                     </ErrorBoundary>
