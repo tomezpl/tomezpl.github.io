@@ -4,11 +4,12 @@ import {FaCode, FaGithub, FaLinkedin} from 'react-icons/fa';
 import {BsFillEnvelopeFill, BsMortarboardFill} from 'react-icons/bs';
 
 import gbFlag from '~/assets/gb_flag.svg';
+import {animOrder} from '~/utils/anim-order';
 
 function AboutPage() {
     return <MainLayout>
         <div className={styles.aboutRoot}>
-            <div className={[styles.container, styles.essentials].join(' ')}>
+            <div {...animOrder()} className={[styles.container, styles.essentials].join(' ')}>
                 <h1>Essential info</h1>
                 <ul>
                     <li><img src={gbFlag} className={styles.flagIcon} /><span><b>UK-based</b>, fluent English speaker.</span></li>
@@ -16,7 +17,7 @@ function AboutPage() {
                     <li><FaCode size={'var(--icon-size)'} /><span><b>5 years</b> of professional experience in <b>full-stack Web development</b>.</span></li>
                 </ul>
             </div>
-            <div className={[styles.container, styles.contact].join(' ')}>
+            <div {...animOrder(1)} className={[styles.container, styles.contact].join(' ')}>
                 <h1>Contact & links</h1>
                 <ul>
                     <li><BsFillEnvelopeFill size={'var(--icon-size'}/>Email: <b><a href={'mailto:tomaszzlc@gmail.com'}>tomaszzlc@gmail.com</a></b></li>

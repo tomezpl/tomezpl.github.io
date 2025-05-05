@@ -21,8 +21,8 @@
             "single"
         ],
         "import/extensions": ["error", {
-            "pattern": {"ts": "never", "tsx": "never", "webp": "always", "png": "always", "jpg": "always", "ttf": "always", "pdf": "always", "svg": "always", "gif": "always"}
+            "pattern": {"ts": "never", "tsx": "never", "webp": "always", "png": "always", "jpg": "always", "ttf": "always", "pdf": "always", "svg": "always", "gif": "always", "mp4":  "always"}
         }]
     },
-    "ignorePatterns": ["**/*.scss", "**/*.css", "**/*.png", "**/*.jpg", "**/*.webp", "**/*.svg", "**/*.ttf", "**/*.pdf", "**/*.gif"]
+    "ignorePatterns": ["**/*.scss", "**/*.css", "**/*.png", "**/*.jpg", "**/*.webp", "**/*.svg", "**/*.ttf", "**/*.pdf", "**/*.gif", "**/*.mp4"]
 }

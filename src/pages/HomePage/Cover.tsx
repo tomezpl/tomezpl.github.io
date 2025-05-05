@@ -8,7 +8,7 @@ import {BsFileEarmarkPersonFill} from 'react-icons/bs';
 import linkedinLogo from '~/assets/linkedin.png';
 import {HomePageIds} from './index.tsx';
 
-export function Cover() {
+export function Cover({className, style}: {className?: string, style?: Record<string, string>}) {
     const homeIntroCoverBriefRef = useRef<HTMLDivElement>(null);
     const header = useHeader();
     const rootRef = useRef<HTMLDivElement>(null);
@@ -58,7 +58,7 @@ export function Cover() {
         }
     }, [header]);
 
-    return <div className={['tz-brand-gradient', styles.coverRoot].join(' ')}>
+    return <div style={style ?? {}} className={['tz-brand-gradient', styles.coverRoot, className ?? ''].join(' ')}>
         <Header className={styles.dummyHeader} />
         <div className={styles.coverText}>
             <div ref={homeIntroCoverBriefRef} id={HomePageIds.CoverBrief} className={styles.homeIntroCoverBrief}>
