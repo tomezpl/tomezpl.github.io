@@ -1,0 +1,28 @@
+on: push
+
+name: create-build
+
+jobs:
+  build:
+    defaults:
+      run:
+        shell: bash
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout source
+      - uses: actions/checkout@v4
+        with:
+          repository: 'tomezpl/website-assets'
+          path: temp_assets
+        name: Checkout assets
+      - run: npm install
+        name: Install deps
+      - run: cp temp_assets/*.* src/assets/
+        name: Copy assets
+      - run: npm run build
+        name: Build
+      - uses: actions/upload-artifact@v4
+        with:
+          path: dist/
+          name: 'build'
