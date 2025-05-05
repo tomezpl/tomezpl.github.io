@@ -34,7 +34,10 @@ const Sidenav: FunctionComponent = () => {
         </ul>
         <div className={styles.footerRoot}>
             <p>Version {VERSION}</p>
-            <p>Built with <a href='#'>Preact</a>, <a href={'#'}>TypeScript</a>, <a href={'#'}>Sass</a>, <a href={'#'}>Zustand</a> and <a href={'#'}>Vite</a>.</p>
+            <p>
+                Built with <a target={'_blank'} href='https://preactjs.com/'>Preact</a>, <a target={'_blank'} href={'https://www.typescriptlang.org/'}>TypeScript</a>,
+                <a target={'_blank'} href={'https://sass-lang.com/'}>Sass</a>, <a target={'_blank'} href={'https://zustand.docs.pmnd.rs/getting-started/introduction'}>Zustand</a> and <a target={'_blank'} href={'https://vite.dev/'}>Vite</a>.
+            </p>
         </div>
     </div>
 };
