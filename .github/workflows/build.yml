@@ -27,3 +27,34 @@ jobs:
         with:
           path: dist/
           name: 'build'
+  prod-build:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout source
+      - uses: actions/checkout@v4
+        with:
+          repository: 'tomezpl/website-assets'
+          path: temp_assets
+          token: '${{ secrets.WEBSITE_ASSETS_PAT }}'
+        name: Checkout assets
+      - run: npm install
+        name: Install deps
+      - run: cp temp_assets/*.* src/assets/
+        name: Copy assets
+      - run: npm run build
+        name: Build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+  deploy:
+    needs: prod-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deployment
