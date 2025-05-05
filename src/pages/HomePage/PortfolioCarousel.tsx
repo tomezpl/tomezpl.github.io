@@ -69,7 +69,7 @@ export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
     }, [canUseJs, currentlyActiveSlide, flatSlides]);
 
     return <div className={styles.root}>
-        {flatSlides.map(({title, textWidth, subtitle, technologies, text, image}, i, {length: total}) => slidesToHide.includes(i) ? null : <div
+        {flatSlides.map(({title, textWidth, subtitle, technologies, text, image}, i, {length: total}) => <div
             data-iscurrentslide={currentlyActiveSlide === i ? 'true' : 'false'}
             className={styles.slideRoot} {...(getId(i) ? {id: getId(i)!} : {})}
             style={textWidth ? {'--text-width': textWidth} : {}}
@@ -81,8 +81,8 @@ export function PortfolioCarousel({entries, idBase}: PortfolioCarouselProps) {
                 {(technologies?.length ?? 0) > 0 ? <><hr /><div className={styles.technologies}>{technologies?.map((tech, j) => <><div key={`dummydiv tech ${j} ${title} ${i}`}>{tech}<span className={styles.techDummy} >{((tech as VNode).props as {alt?: string}).alt}</span></div></>)}</div></> : null}
             </div>
             <div draggable={false} className={styles.imageContainer} style={{'--image-src': `url(${image})`}}>
-                {image.endsWith('mp4') ? <video disableremoteplayback disablePictureInPicture playsinline muted loop className={styles.imageBg} preload={'auto'} autoplay><source src={image} /></video> : <img decoding={'async'} fetchPriority={'high'} draggable={false} loading={ 'lazy'} className={styles.imageBg} src={image} />}
-                {image.endsWith('mp4') ? <video disableremoteplayback playsinline muted loop  className={styles.image} preload={'auto'} autoplay><source src={image} /></video> : <img decoding={'async'} fetchPriority={'high'} draggable={false} loading={i === 0 ? 'eager' : 'lazy'} className={styles.image} src={image} />}
+                {image.endsWith('mp4') ? <video disableremoteplayback disablePictureInPicture playsinline muted loop className={styles.imageBg} preload={'auto'} autoplay><source src={image} /></video> : (slidesToHide.includes(i) ? null : <img decoding={'async'} fetchPriority={'high'} draggable={false} loading={ 'lazy'} className={styles.imageBg} src={image} />)}
+                {image.endsWith('mp4') ? <video disableremoteplayback playsinline muted loop  className={styles.image} preload={'auto'} autoplay><source src={image} /></video> : (slidesToHide.includes(i) ? null : <img decoding={'async'} fetchPriority={'high'} draggable={false} loading={i === 0 ? 'eager' : 'lazy'} className={styles.image} src={image} />)}
                 <a draggable={false} onClick={onPrevSlide} className={styles.prevBtn} href={getHref((i === 0 ? total : i) - 1)}><IoIosArrowDropleftCircle size={'100%'} /></a>
                 <a draggable={false} onClick={onNextSlide} className={styles.nextBtn} href={getHref((i + 1) % total)}><IoIosArrowDroprightCircle size={'100%'} /></a>
             </div>

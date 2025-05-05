@@ -26,7 +26,7 @@ import bpgCommonUi from '~/assets/portfolio/professional/common ui.jpg';
 import bpgPanel from '~/assets/portfolio/professional/game-panel.webp';
 import roombaRumble from '~/assets/portfolio/hobby/roombarumble1.gif';
 import blenderLogo from '~/assets/blender.svg';
-import carPhysics from '~/assets/portfolio/hobby/driving-physics.webp';
+import carPhysics from '~/assets/portfolio/hobby/driving-physics.mp4';
 import godotLogo from '~/assets/godot.svg';
 import sthShort from '~/assets/portfolio/hobby/sth-trailer-30.mp4';
 import csharpLogo from '~/assets/logo_Csharp.svg';
@@ -176,6 +176,7 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
                     </p>
                 </>,
                 image: bpgCommonUi,
+                textWidth: '40%'
             },
             {
                 text: () => <>
@@ -190,6 +191,7 @@ export const portfolioEntries: ReadonlyArray<PortfolioEntry> = [
                     </p>
                 </>,
                 image: bpgCommonUi,
+                textWidth: '40%'
             },
             {
                 text: () => <>
