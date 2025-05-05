@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "~/shared";
+@use '~/breakpoints';
 
 $oddPostColour: color.mix(color.mix(#000, shared.$color-purple, 60%), shared.$color-lightrosey, 75%);
 $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
@@ -103,6 +104,22 @@ $evenPostColour: color.mix(#000, shared.$color-violet, 65%);
   p {
     font-size: 1.3em;
     line-height: 1.2em;
+  }
+
+  > h1, > h2, > p {
+    padding-left: 5.5rem;
+
+    @media screen and (max-width: breakpoints.$lg) {
+      padding-left: 4rem;
+    }
+
+    @media screen and (max-width: breakpoints.$md) {
+      padding-left: 2.5rem;
+    }
+
+    @media screen and (max-width: breakpoints.$sm) {
+      padding-left: 1rem;
+    }
   }
 
   padding: shared.padding(2);

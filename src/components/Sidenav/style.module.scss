@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "~/shared";
+@use '~/breakpoints';
 
 @keyframes sidenav-open {
     0% {
@@ -158,6 +159,17 @@
         margin: 1rem 0.35rem;
         grid-area: menu-toggle;
         justify-self: center;
+
+        @media screen and (max-width: breakpoints.$md) {
+            justify-self: start;
+            margin-left: 3.5rem;
+        }
+
+        @media screen and (max-width: breakpoints.$sm) {
+            justify-self: start;
+            margin-left: 2rem;
+        }
+
         width: fit-content;
         pointer-events: all;
         cursor: pointer;
