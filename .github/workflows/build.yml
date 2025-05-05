@@ -15,6 +15,7 @@ jobs:
         with:
           repository: 'tomezpl/website-assets'
           path: temp_assets
+          token: '${{ secrets.WEBSITE_ASSETS_PAT }}'
         name: Checkout assets
       - run: npm install
         name: Install deps
