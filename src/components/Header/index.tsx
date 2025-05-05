@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'preact';
 import pages from '~/pages';
 import styles from './style.module.scss';
-import tzLogo from '~/assets/tz_logo.png';
+import tzLogo from '~/assets/tz_logo-144.png';
 import {useMemo} from 'preact/hooks';
 import {useRoute} from 'preact-iso';
 
@@ -21,7 +21,7 @@ const Header: FunctionComponent<HeaderProps> = ({className, ref}) => {
     }, [currentRoute, pages]);
 
     return <div ref={ref} className={['tz-brand-gradient', HeaderClasses.Root, styles.root, className ?? ''].join(' ')}>
-        <img src={tzLogo} className={styles.tzLogo} />
+        <img decoding={'async'} fetchPriority={'high'} loading={'eager'} src={tzLogo} className={styles.tzLogo} />
         <h1 className={styles.pageTitle}>{pageTitle}</h1>
     </div>
 }
