@@ -74,15 +74,15 @@ export function Cover({className, style}: {className?: string, style?: Record<st
                 </p>
 
                 <div className={styles.socialLinksContainer}>
-                    <a target="_blank" href="https://github.com/tomezpl">
+                    <a title={'GitHub'} target="_blank" href="https://github.com/tomezpl">
                         <img src={githubLogo}/>
                     </a>
-                    <a className={styles.resumeLink} target="_blank" href={resumePdf}>
+                    <a title={'CV/Resume'} className={styles.resumeLink} target="_blank" href={resumePdf}>
                         <BsFileEarmarkPersonFill size={'80%'} />
                         <i className="bi bi-file-earmark-person-fill"
                            style="font-size: 55px; transform: translate(0, -3px); height: 80px;"></i>
                     </a>
-                    <a target="_blank" href="https://www.linkedin.com/in/tomzajac/">
+                    <a title={'LinkedIn'} target="_blank" href="https://www.linkedin.com/in/tomzajac/">
                         <img src={linkedinLogo}/>
                     </a>
                 </div>
